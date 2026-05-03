@@ -1,0 +1,3 @@
+use button.txt for final request a mechanic button at last
+use cardseffect.txt for adding effect on services card keep everything else same
+

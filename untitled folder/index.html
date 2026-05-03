@@ -1,0 +1,2835 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PitCrew Mobile Mechanics — Austin TX</title>
+
+<!-- Preconnect critical CDNs -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+<link rel="dns-prefetch" href="https://images.unsplash.com" />
+<link rel="dns-prefetch" href="https://plus.unsplash.com" />
+
+<!-- Fonts — non-render-blocking -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
+
+<!-- Preload above-fold hero image -->
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1631720040176-0d789a643a78?auto=format&fit=crop&w=1600&h=900&q=80" fetchpriority="high" />
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:       '#0B0F14',
+          graphite:  '#141A23',
+          steel:     '#1C2333',
+          ember:     '#FF6A1A',
+          'ember-deep': '#C2410C',
+          chrome:    '#E5E7EB',
+          ash:       '#94A3B8',
+        },
+        fontFamily: {
+          display: ['Space Grotesk', 'sans-serif'],
+          body:    ['Inter', 'sans-serif'],
+          mono:    ['JetBrains Mono', 'monospace'],
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  :root {
+    --ink:        #0B0F14;
+    --graphite:   #141A23;
+    --steel:      #1C2333;
+    --ember:      #FF6A1A;
+    --ember-deep: #C2410C;
+    --chrome:     #E5E7EB;
+    --ash:        #94A3B8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink);
+    color: var(--chrome);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+  }
+
+  /* Typography */
+  .font-display { font-family: 'Space Grotesk', sans-serif; }
+  .font-mono    { font-family: 'JetBrains Mono', monospace; }
+
+  /* Custom shadows */
+  .shadow-ember { box-shadow: 0 20px 60px -20px rgba(255,106,26,.4), 0 4px 16px -8px rgba(255,106,26,.2); }
+  .shadow-card  { box-shadow: 0 30px 80px -40px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.06); }
+  .shadow-nav   { box-shadow: 0 1px 0 rgba(255,255,255,.05), 0 20px 40px -20px rgba(0,0,0,.6); }
+
+  /* Gradients */
+  .hero-bg {
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 110%, rgba(255,106,26,.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 5%  -10%, rgba(28,35,51,.9)    0%, transparent 70%),
+      var(--ink);
+  }
+
+  /* Nav glass */
+  .nav-glass {
+    background: rgba(11,15,20,.85);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+  }
+
+  /* Card base */
+  .card {
+    background: var(--graphite);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 16px;
+  }
+  .card-float {
+    background: var(--steel);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px;
+  }
+
+  /* Ember button */
+  .btn-ember {
+    background: linear-gradient(135deg, var(--ember) 0%, var(--ember-deep) 100%);
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    border-radius: 10px;
+    padding: 14px 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s cubic-bezier(0.16,1,0.3,1), box-shadow 0.2s cubic-bezier(0.16,1,0.3,1);
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+  }
+  .btn-ember::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0);
+    transition: background 0.2s;
+  }
+  .btn-ember:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 60px -20px rgba(255,106,26,.55), 0 4px 16px -8px rgba(255,106,26,.3);
+  }
+  .btn-ember:hover::before { background: rgba(255,255,255,.08); }
+  .btn-ember:active { transform: translateY(0); }
+  .btn-ember:focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
+
+  .btn-ghost {
+    background: rgba(255,255,255,.06);
+    color: var(--chrome);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    border-radius: 10px;
+    padding: 14px 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255,255,255,.1);
+    transition: transform 0.2s cubic-bezier(0.16,1,0.3,1), background 0.2s, border-color 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-ghost:hover {
+    background: linear-gradient(135deg, var(--ember) 0%, var(--ember-deep) 100%);
+    border-color: var(--ember);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 20px 60px -20px rgba(255,106,26,.55), 0 4px 16px -8px rgba(255,106,26,.3);
+  }
+  .btn-ghost:active { transform: translateY(0); }
+  .btn-ghost:focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
+
+  /* testimonial marquee */
+  .tc-marquee-outer {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 80px, black calc(100% - 80px), transparent);
+    mask-image: linear-gradient(to right, transparent, black 80px, black calc(100% - 80px), transparent);
+  }
+
+  /* Scroll reveal — start hidden */
+  .reveal { opacity: 0; transform: translateY(24px); }
+  .reveal.visible { opacity: 1; transform: translateY(0); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+
+  /* Card hover lift */
+  .lift {
+    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s cubic-bezier(0.16,1,0.3,1);
+    cursor: pointer;
+  }
+  .lift:hover { transform: translateY(-6px) scale(1.01); }
+  .lift:hover .ember-glow { box-shadow: 0 0 40px rgba(255,106,26,.25); }
+
+  /* BentoGrid-inspired hover effect on services cards (additive) */
+  #services .bento-grid > .card::after,
+  #services .bento-grid > .bento-wide::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle at center, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 4px 4px;
+    opacity: 0;
+    transition: opacity .3s ease;
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 0;
+  }
+  #services .bento-grid > .card:hover::after,
+  #services .bento-grid > .bento-wide:hover::after { opacity: 1; }
+  #services .bento-grid > .card::before,
+  #services .bento-grid > .bento-wide::before {
+    content: "";
+    position: absolute; inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, rgba(255,106,26,.28), transparent);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0;
+    transition: opacity .3s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+  #services .bento-grid > .card:hover::before,
+  #services .bento-grid > .bento-wide:hover::before { opacity: 1; }
+
+  /* FlowButton — final "Request a Mechanic" submit */
+  .flow-btn {
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+    gap: 4px; width: 100%;
+    overflow: hidden; border-radius: 100px;
+    border: 1.5px solid rgba(255,106,26,.5);
+    background: transparent; color: var(--chrome);
+    padding: 16px 32px; font-size: 16px; font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.01em;
+    cursor: pointer;
+    transition: border-color .6s cubic-bezier(.23,1,.32,1),
+                border-radius .6s cubic-bezier(.23,1,.32,1),
+                color .6s cubic-bezier(.23,1,.32,1),
+                transform .15s ease;
+  }
+  .flow-btn:hover { border-color: transparent; color: #fff; border-radius: 12px; }
+  .flow-btn:active { transform: scale(.97); }
+  .flow-btn:focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
+  .flow-btn .flow-arr-1, .flow-btn .flow-arr-2 {
+    position: absolute; width: 18px; height: 18px; z-index: 9;
+    stroke: var(--ember); fill: none;
+    transition: right .8s cubic-bezier(.34,1.56,.64,1),
+                left .8s cubic-bezier(.34,1.56,.64,1),
+                stroke .6s ease;
+  }
+  .flow-btn .flow-arr-1 { right: 18px; }
+  .flow-btn .flow-arr-2 { left: -25%; }
+  .flow-btn:hover .flow-arr-1 { right: -25%; stroke: #fff; }
+  .flow-btn:hover .flow-arr-2 { left: 18px; stroke: #fff; }
+  .flow-btn .flow-text {
+    position: relative; z-index: 2;
+    transform: translateX(-12px);
+    transition: transform .8s ease;
+  }
+  .flow-btn:hover .flow-text { transform: translateX(12px); }
+  .flow-btn .flow-circle {
+    position: absolute; top: 50%; left: 50%;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--ember), var(--ember-deep));
+    transform: translate(-50%,-50%); opacity: 0;
+    transition: width .8s cubic-bezier(.19,1,.22,1),
+                height .8s cubic-bezier(.19,1,.22,1),
+                opacity .8s cubic-bezier(.19,1,.22,1);
+    z-index: 1;
+  }
+  .flow-btn:hover .flow-circle { width: 600px; height: 600px; opacity: 1; }
+
+  /* 3D card tilt (CSS perspective) */
+  .tilt-card {
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+
+  /* FAQ — max-height collapse (reliable cross-browser) */
+  .faq-body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .faq-body.open { max-height: 800px; }
+  .faq-chevron { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+  /* Input focus ring */
+  .form-input {
+    background: var(--steel);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 10px;
+    color: var(--chrome);
+    padding: 14px 16px;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    transition: border-color 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s;
+    outline: none;
+  }
+  .form-input:focus {
+    border-color: var(--ember);
+    box-shadow: 0 0 0 3px rgba(255,106,26,.18);
+  }
+  .form-input::placeholder { color: var(--ash); }
+  .form-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ash);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* Three.js canvas container */
+  #hero-canvas { position: absolute; inset: 0; }
+  #hero-canvas-fallback { display: none; align-items: center; justify-content: center; }
+  /* Only show SVG fallback if reduced-motion is requested */
+  @media (prefers-reduced-motion: reduce) {
+    #hero-canvas { display: none !important; }
+    #hero-canvas-fallback { display: flex; }
+    /* print — no carousel animation needed */
+    .reveal { opacity: 1 !important; transform: none !important; }
+  }
+
+  /* ═════════════ MOBILE OPTIMIZATIONS ═════════════ */
+  @media (max-width: 768px) {
+    /* Section padding — way less on mobile */
+    section.py-28 { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+    section.py-20 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+
+    /* Hero — tighten + scale */
+    .hero-bg { min-height: auto !important; padding-top: 5rem !important; padding-bottom: 3rem !important; }
+    .hero-bg .max-w-7xl { padding: 0 1.25rem !important; gap: 2rem !important; }
+    .hero-bg h1 { font-size: clamp(2.4rem, 10vw, 3rem) !important; }
+    .hero-bg p { font-size: 1rem !important; }
+    .hero-bg .absolute.right-0 { display: none !important; } /* hide decorative rings */
+
+    /* Hero trust strip — single row of pairs, no thin dividers */
+    .hero-bg .flex.flex-wrap.gap-6 { gap: 1.25rem !important; padding-top: 1.5rem !important; }
+    .hero-bg .flex.flex-wrap.gap-6 > div[style*="width:1px"] { display: none !important; }
+
+    /* Hero canvas — move ABOVE the headline on mobile, smaller height */
+    #hero-canvas-fallback { height: 240px !important; }
+    .hero-bg .grid > div:last-child {
+      height: 240px !important;
+      order: -1;
+      margin-bottom: 0.5rem;
+    }
+    .hero-bg .grid { display: flex !important; flex-direction: column !important; gap: 1.25rem !important; }
+
+    /* Nav — slimmer */
+    nav .max-w-7xl { padding-left: 1rem !important; padding-right: 1rem !important; }
+    .btn-ember { padding: 12px 22px !important; font-size: 14px !important; }
+
+    /* Stats — vertical stack on tiny screens stays 2x2, smaller numbers */
+    .stat-num { font-size: 2.25rem !important; }
+
+    /* Section headings */
+    section h2 { font-size: 2rem !important; line-height: 1.15 !important; }
+
+    /* Bento grid — single column, less padding */
+    .bento-grid { gap: 12px !important; }
+    .bento-grid .card,
+    .bento-grid .card-float,
+    .bento-wide { padding: 22px !important; min-height: auto !important; }
+
+    /* Process steps — tighter */
+    .timeline-step { padding: 24px 18px !important; }
+
+    /* Dispatch callout — vertical stack, less padding */
+    .card-float[style*="48px"] { padding: 28px 22px !important; }
+    .card-float[style*="48px"] h3 { font-size: 1.5rem !important; }
+
+    /* Recent Work gallery — tighter rows on mobile */
+    #work .grid { grid-auto-rows: 180px !important; gap: 10px !important; }
+
+    /* Testimonials — 1 card per page on mobile */
+    .tc-btn { display: none !important; }
+
+    /* Pricing — flatten the "featured" lift, simpler stacking */
+    #pricing .grid { gap: 14px !important; }
+    #pricing .card,
+    #pricing .card-float { padding: 26px !important; margin-top: 0 !important; }
+
+    /* Brand banner above pricing — shorter on mobile */
+    div[style*="height:320px"] { height: 220px !important; }
+    div[style*="height:320px"] h2 { font-size: 1.6rem !important; padding: 0 1rem; }
+
+    /* About section */
+    #about .grid { gap: 2.5rem !important; }
+    /* Marcus floating badge — keep inside the image bounds */
+    #about .absolute.card-float { left: 16px !important; bottom: 16px !important; padding: 12px 16px !important; }
+    #about .absolute.card-float .text-lg { font-size: 0.95rem !important; }
+
+    /* Cert badges row */
+    #about .flex-wrap > .card { padding: 8px 12px !important; font-size: 10px !important; }
+
+    /* FAQ */
+    .faq-trigger { padding: 18px 20px !important; font-size: 15px !important; }
+    .faq-body > div { padding: 0 20px 18px !important; font-size: 14px !important; }
+
+    /* Contact form — single column for name/phone */
+    #contact form .grid.grid-cols-2 { grid-template-columns: 1fr !important; gap: 0 !important; }
+    #contact form .grid.grid-cols-2 > div { margin-bottom: 1rem !important; }
+    #contact .card { padding: 24px !important; }
+
+    /* Footer */
+    footer { padding: 40px 0 28px !important; }
+    footer .grid { gap: 2rem !important; }
+    footer .flex.flex-wrap.gap-6 { gap: 1rem !important; }
+
+    /* Toast — sit lower */
+    #toast { left: 16px; right: 16px; transform: translateY(80px); width: auto; max-width: none; }
+    #toast.show { transform: translateY(0); }
+  }
+
+  /* Extra-small phones (≤ 380px) */
+  @media (max-width: 380px) {
+    .hero-bg h1 { font-size: 2.1rem !important; }
+    section h2 { font-size: 1.75rem !important; }
+    /* extra-small phones — 1 card carousel */
+    /* Hide phone in nav contact info row to save space */
+    nav .hidden.md\:flex { display: none !important; }
+  }
+
+  /* Bento grid */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 900px) {
+    .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .bento-grid { grid-template-columns: 1fr; }
+  }
+  .bento-wide { grid-column: span 2; }
+  @media (max-width: 900px) { .bento-wide { grid-column: span 1; } }
+
+  /* Stats */
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--chrome);
+    line-height: 1;
+  }
+
+  /* Gallery hover */
+  .job-card { position: relative; overflow: hidden; border-radius: 16px; cursor: pointer; }
+  .job-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.4s ease; filter: saturate(.85); }
+  .job-card:hover img { transform: scale(1.08); filter: saturate(1.1); }
+  .job-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(11,15,20,.92) 0%, rgba(11,15,20,.35) 55%, transparent 100%);
+    transition: background 0.4s ease;
+  }
+  .job-card:hover .job-overlay {
+    background: linear-gradient(to top, rgba(11,15,20,.96) 0%, rgba(255,106,26,.18) 60%, rgba(11,15,20,.25) 100%);
+  }
+  .job-tag {
+    position: absolute; top: 16px; left: 16px;
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 10px; border-radius: 999px;
+    background: rgba(11,15,20,.7); border: 1px solid rgba(255,106,26,.45);
+    color: var(--ember);
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: .14em;
+    backdrop-filter: blur(6px);
+    transform: translateY(-4px); opacity: 0;
+    transition: transform .35s cubic-bezier(.16,1,.3,1), opacity .35s;
+  }
+  .job-card:hover .job-tag { transform: translateY(0); opacity: 1; }
+  .job-info {
+    position: absolute; bottom: 0; left: 0; right: 0; padding: 20px;
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .job-info .job-meta {
+    display: flex; align-items: center; gap: 8px;
+    max-height: 0; overflow: hidden; opacity: 0;
+    transform: translateY(6px);
+    transition: max-height .4s ease, opacity .4s ease, transform .4s ease;
+    margin-top: 0;
+  }
+  .job-card:hover .job-info .job-meta {
+    max-height: 40px; opacity: 1; transform: translateY(0); margin-top: 6px;
+  }
+  .job-card:hover .job-info { transform: translateY(-4px); }
+  .job-info .job-cta {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--ember); font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px; font-weight: 600;
+    opacity: 0; transform: translateX(-6px);
+    transition: opacity .4s ease, transform .4s ease;
+    margin-top: 10px;
+  }
+  .job-card:hover .job-info .job-cta { opacity: 1; transform: translateX(0); }
+
+  /* Timeline — uniform card style for each step */
+  .timeline-step {
+    position: relative;
+    padding: 32px 24px;
+    background: var(--steel);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 16px;
+    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s;
+  }
+  .timeline-step:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,106,26,.25);
+  }
+
+  /* Hero heading gradient */
+  .heading-gradient {
+    background: linear-gradient(135deg, #fff 40%, rgba(255,255,255,.6) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Ember accent text */
+  .text-ember-accent {
+    background: linear-gradient(135deg, var(--ember) 0%, #FFB347 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Nav link hover */
+  .nav-link {
+    color: var(--ash);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.2s;
+    padding: 4px 0;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--ember);
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  .nav-link:hover { color: var(--chrome); }
+  .nav-link:hover::after { width: 100%; }
+  .nav-link:focus-visible { outline: 2px solid var(--ember); outline-offset: 4px; border-radius: 4px; }
+
+  /* Social links */
+  .social-link {
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s cubic-bezier(0.16,1,0.3,1);
+    color: var(--ash);
+    text-decoration: none;
+  }
+  .social-link:hover { background: rgba(255,106,26,.15); border-color: rgba(255,106,26,.4); color: var(--ember); transform: translateY(-2px); }
+  .social-link:active { transform: translateY(0); }
+  .social-link:focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
+
+  /* Toast */
+  #toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px);
+    background: linear-gradient(135deg, var(--ember), var(--ember-deep));
+    color: #fff; padding: 14px 28px; border-radius: 12px;
+    font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px;
+    box-shadow: 0 20px 60px -20px rgba(255,106,26,.6);
+    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.5s;
+    opacity: 0; z-index: 10000; pointer-events: none;
+  }
+  #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+  /* Pricing badge */
+  .pricing-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--ember), var(--ember-deep));
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  /* Section header */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ember);
+  }
+
+  /* ═════════════ FRAMER-MOTION-STYLE ANIMATIONS ═════════════ */
+
+  /* Scroll progress bar */
+  #scroll-progress {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--ember), #FFB347);
+    transform-origin: 0% 50%;
+    transform: scaleX(0);
+    z-index: 100;
+    pointer-events: none;
+    box-shadow: 0 0 12px rgba(255,106,26,.55);
+  }
+
+  /* Word split helpers — words stay atomic, never break internally */
+  .word-wrap  {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    white-space: nowrap;
+  }
+  .word-anim  {
+    display: inline-block;
+    white-space: nowrap;
+    will-change: transform, opacity;
+    transform: translateY(110%);
+    opacity: 0;
+  }
+  .char-anim  {
+    display: inline-block;
+    white-space: nowrap;
+    will-change: transform, opacity;
+    transform: translateY(110%);
+    opacity: 0;
+  }
+
+  /* fx-* — start hidden, JS animates to rest */
+  .fx        { will-change: transform, opacity, filter; opacity: 0; }
+  .fx-up     { transform: translateY(40px); }
+  .fx-down   { transform: translateY(-40px); }
+  .fx-left   { transform: translateX(-50px); }
+  .fx-right  { transform: translateX(50px); }
+  .fx-scale  { transform: scale(0.9); }
+  .fx-blur   { filter: blur(12px); transform: translateY(20px); }
+
+  /* Magnetic button (subtle) */
+  .magnetic { transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); will-change: transform; }
+
+  /* Hero parallax targets */
+  .hero-ring { will-change: transform; }
+  .hero-bg-img { will-change: transform; }
+
+  /* Banner image parallax */
+  .banner-parallax { will-change: transform; }
+
+
+  /* Hero fallback wrench — gentle float */
+  #hero-canvas-fallback svg { animation: heroFloat 5s ease-in-out infinite; }
+  @keyframes heroFloat {
+    0%,100% { transform: translateY(0) rotate(-3deg); }
+    50%     { transform: translateY(-14px) rotate(3deg); }
+  }
+
+  /* Mobile menu slide animation */
+  #mobile-menu {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .35s cubic-bezier(.16,1,.3,1), opacity .25s ease;
+    opacity: 0;
+  }
+  #mobile-menu.open { max-height: 420px; opacity: 1; }
+
+  /* Boost social hover (more obvious orange) */
+  .social-link:hover {
+    background: linear-gradient(135deg, var(--ember), var(--ember-deep)) !important;
+    border-color: var(--ember) !important;
+    color: #fff !important;
+    box-shadow: 0 8px 24px rgba(255,106,26,.35);
+  }
+  .social-link:hover svg { transform: scale(1.1); transition: transform .25s ease; }
+
+  /* Hero SCROLL — bouncing chevron */
+  .hero-scroll {
+    position: absolute;
+    bottom: 24px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    color: var(--ash);
+    opacity: .9;
+  }
+  .hero-scroll .hs-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; text-transform: uppercase; letter-spacing: .25em;
+    color: var(--ember);
+  }
+  .hero-scroll .hs-arrow {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,106,26,.5);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ember);
+    animation: heroScrollBounce 1.6s cubic-bezier(.16,1,.3,1) infinite;
+  }
+  @keyframes heroScrollBounce {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(8px); }
+  }
+
+  /* Reduced-motion: skip everything */
+  @media (prefers-reduced-motion: reduce) {
+    #scroll-progress { display: none; }
+    .fx, .char-anim, .word-anim {
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+    }
+    .hero-scroll .hs-arrow, #hero-canvas-fallback svg { animation: none !important; }
+  }
+
+  /* ═════════════ PORTFOLIO UPGRADES ═════════════ */
+
+  /* Custom cursor disabled — using native cursor */
+  #cursor-dot, #cursor-ring { display: none !important; }
+
+  /* ── Preloader ── */
+  #preloader {
+    position: fixed; inset: 0;
+    background: var(--ink);
+    z-index: 100000;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 28px;
+    transition: opacity .6s cubic-bezier(.16,1,.3,1), visibility 0s .6s;
+  }
+  #preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+  #preloader .pl-logo {
+    width: 64px; height: 64px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--ember), var(--ember-deep));
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 12px 60px rgba(255,106,26,.45);
+    animation: plPulse 1.6s ease-in-out infinite;
+  }
+  @keyframes plPulse {
+    0%,100% { transform: scale(1) rotate(-4deg); box-shadow: 0 12px 60px rgba(255,106,26,.4); }
+    50%     { transform: scale(1.08) rotate(4deg); box-shadow: 0 18px 80px rgba(255,106,26,.6); }
+  }
+  #preloader .pl-bar-wrap {
+    width: 220px; height: 3px;
+    background: rgba(255,255,255,.08);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+  #preloader .pl-bar {
+    position: absolute; top: 0; left: 0; bottom: 0;
+    width: 0%;
+    background: linear-gradient(90deg, var(--ember), #FFB347);
+    box-shadow: 0 0 16px rgba(255,106,26,.7);
+    transition: width .25s ease;
+  }
+  #preloader .pl-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: .25em; text-transform: uppercase;
+    color: var(--ash);
+  }
+  #preloader .pl-text .pl-pct { color: var(--ember); }
+
+  /* ── Tachometer scroll indicator ── */
+  .tachometer { position: relative; width: 56px; height: 56px; }
+  .tachometer .tach-bg, .tachometer .tach-fill {
+    position: absolute; inset: 0;
+    fill: none; stroke-width: 3; stroke-linecap: round;
+  }
+  .tachometer .tach-bg   { stroke: rgba(255,255,255,.08); }
+  .tachometer .tach-fill { stroke: url(#tachGrad); transition: stroke-dashoffset .15s linear; }
+  .tachometer .tach-needle {
+    position: absolute; inset: 0;
+    transform-origin: 50% 50%;
+    transition: transform .15s linear;
+  }
+  .tachometer .tach-rpm {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: .12em;
+    color: var(--ember);
+  }
+
+  /* Scope mouse-parallax in hero only — allow CSS control via container */
+  [data-hero-canvas] { perspective: 800px; }
+
+  /* ── Stats — accent bar ── */
+  .stat-accent {
+    width: 32px; height: 3px;
+    background: linear-gradient(90deg, var(--ember), var(--ember-deep));
+    border-radius: 2px;
+    margin: 10px auto 10px;
+  }
+
+  /* ── Tire-tread divider ── */
+  .tread-divider {
+    height: 14px;
+    background-image:
+      linear-gradient(90deg, rgba(255,255,255,.04) 50%, transparent 50%),
+      linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.06));
+    background-size: 18px 14px, 100% 1px;
+    background-repeat: repeat-x, no-repeat;
+    background-position: 0 0, 0 50%;
+    opacity: .6;
+  }
+
+  /* ── Brutalist type divider ── */
+  .type-divider {
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+    text-align: center;
+    background: var(--ink);
+  }
+  .type-divider .td-word {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(5rem, 18vw, 16rem);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255,106,26,.55);
+    display: inline-block;
+    will-change: transform;
+    user-select: none;
+  }
+  .type-divider .td-sub {
+    margin-top: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .35em;
+    color: var(--ash);
+    text-transform: uppercase;
+  }
+
+  /* ── Footer watermark ── */
+  footer { position: relative; overflow: hidden; }
+  .footer-watermark {
+    position: absolute;
+    bottom: -28px; left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(5rem, 18vw, 18rem);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255,255,255,.04);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    z-index: 0;
+  }
+  footer > div.max-w-7xl { position: relative; z-index: 1; }
+
+  /* ── "Made with" stack badges ── */
+  .stack-row {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    align-items: center;
+    margin-top: 18px;
+  }
+  .stack-row .stack-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ash);
+    margin-right: 4px;
+  }
+  .stack-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: .08em;
+    color: var(--ash);
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    padding: 5px 9px;
+    border-radius: 6px;
+    transition: color .2s, border-color .2s, background .2s;
+  }
+  .stack-badge:hover { color: var(--ember); border-color: rgba(255,106,26,.4); background: rgba(255,106,26,.08); }
+
+  /* ── Pricing toggle ── */
+  .price-toggle {
+    display: inline-flex; align-items: center; gap: 0;
+    background: var(--steel);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 999px;
+    padding: 5px;
+    margin: 0 auto 28px;
+    position: relative;
+  }
+  .price-toggle button {
+    position: relative; z-index: 1;
+    background: transparent; border: none;
+    color: var(--ash);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color .3s ease;
+    white-space: nowrap;
+  }
+  .price-toggle button.active { color: #fff; }
+  .price-toggle .toggle-pill {
+    position: absolute; top: 5px; left: 5px;
+    width: 80px; height: calc(100% - 10px);
+    background: linear-gradient(135deg, var(--ember), var(--ember-deep));
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(255,106,26,.4);
+    transition: left .35s cubic-bezier(.16,1,.3,1), width .35s cubic-bezier(.16,1,.3,1);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .price-toggle .save-tag {
+    font-size: 9px; letter-spacing: .1em;
+    background: rgba(255,106,26,.18);
+    color: var(--ember);
+    padding: 2px 6px; border-radius: 4px;
+    margin-left: 4px;
+  }
+  .price-amount { display: inline-block; transition: opacity .25s ease, transform .25s ease; }
+  .price-amount.flip { opacity: 0; transform: translateY(6px); }
+
+  /* ── Image shimmer skeleton ── */
+  .img-skel { position: relative; }
+  .img-skel::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.06) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s linear infinite;
+    border-radius: inherit;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity .4s ease;
+  }
+  .img-skel.loaded::after { opacity: 0; animation: none; }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+  /* ── Job-card CTA as link ── */
+  a.job-cta-link { text-decoration: none; }
+
+  /* ── Scroll-draw SVG line for steps ── */
+  .steps-line {
+    position: absolute;
+    top: 36px; left: 8%; right: 8%;
+    height: 2px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .steps-line svg { width: 100%; height: 100%; overflow: visible; }
+  .steps-line svg path {
+    stroke: url(#stepsGrad);
+    stroke-width: 2;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    fill: none;
+    stroke-linecap: round;
+  }
+  @media (max-width: 768px) { .steps-line { display: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    #preloader { display: none !important; }
+    .steps-line svg path { stroke-dashoffset: 0 !important; }
+  }
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<!-- ═══ Preloader ═══ -->
+<div id="preloader" aria-hidden="true">
+  <div class="pl-logo">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+    </svg>
+  </div>
+  <div class="pl-bar-wrap"><div class="pl-bar" id="pl-bar"></div></div>
+  <div class="pl-text">Initializing dispatch <span class="pl-pct" id="pl-pct">0%</span></div>
+</div>
+
+<!-- ═══ Custom cursor ═══ -->
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
+
+<!-- SVG gradient defs for gauges/tachometer -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="sgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6A1A"/>
+      <stop offset="100%" stop-color="#FFB347"/>
+    </linearGradient>
+    <linearGradient id="tachGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9FB8DC"/>
+      <stop offset="60%" stop-color="#FF6A1A"/>
+      <stop offset="100%" stop-color="#FF3300"/>
+    </linearGradient>
+    <linearGradient id="stepsGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(255,106,26,0)"/>
+      <stop offset="50%" stop-color="rgba(255,106,26,.7)"/>
+      <stop offset="100%" stop-color="rgba(255,106,26,0)"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- Scroll-driven progress bar -->
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════ NAV ═══ -->
+<nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="transition:background 0.3s,box-shadow 0.3s;">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+    <!-- Logo -->
+    <a href="#top" class="flex items-center gap-3 group" aria-label="PitCrew Home" style="text-decoration:none;">
+      <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--ember),var(--ember-deep));box-shadow:0 4px 20px rgba(255,106,26,.4);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+        </svg>
+      </div>
+      <span class="font-display font-700 text-chrome text-base tracking-tight group-hover:text-white transition-colors" style="font-weight:700;letter-spacing:-0.02em;">PitCrew</span>
+    </a>
+
+    <!-- Desktop links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#work"     class="nav-link">Work</a>
+      <a href="#pricing"  class="nav-link">Pricing</a>
+      <a href="#about"    class="nav-link">About</a>
+      <a href="#contact"  class="nav-link">Contact</a>
+    </div>
+
+    <!-- CTA -->
+    <div class="flex items-center gap-3">
+      <a href="tel:5125550142" class="hidden md:flex items-center gap-2 nav-link text-sm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5.06 2 2 0 0 1 3.57 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.5a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.91 18z"/></svg>
+        (512) 555-0142
+      </a>
+      <a href="#contact" class="btn-ember text-sm" style="padding:10px 20px;">Book Now</a>
+      <!-- Mobile hamburger -->
+      <button id="menu-btn" class="md:hidden w-9 h-9 flex items-center justify-center rounded-lg" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden nav-glass border-t" style="border-color:rgba(255,255,255,.06);" aria-hidden="true">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-4">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#work"     class="nav-link">Work</a>
+      <a href="#pricing"  class="nav-link">Pricing</a>
+      <a href="#about"    class="nav-link">About</a>
+      <a href="#contact"  class="nav-link">Contact</a>
+      <a href="tel:5125550142" class="nav-link text-sm">(512) 555-0142</a>
+      <a href="#contact" class="btn-ember text-sm justify-center" style="padding:10px 20px;">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════ HERO ═══ -->
+<section class="hero-bg relative min-h-screen flex items-center pt-16 overflow-hidden">
+  <!-- Subtle hero bg image layer -->
+  <div class="hero-bg-img" style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1631720040176-0d789a643a78?auto=format&fit=crop&w=1600&h=900&q=80');background-size:cover;background-position:center 30%;opacity:0.06;pointer-events:none;"></div>
+  <!-- Decorative ring -->
+  <div class="hero-ring absolute right-0 top-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border" data-ring="1" style="border-color:rgba(255,106,26,.06);right:-200px;pointer-events:none;"></div>
+  <div class="hero-ring absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border" data-ring="2" style="border-color:rgba(255,106,26,.1);right:-100px;pointer-events:none;"></div>
+
+  <div class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center w-full">
+    <!-- Left -->
+    <div>
+      <div class="section-label mb-6" data-hero-label>Austin TX · 30-Mile Mobile Response</div>
+      <h1 id="hero-headline" class="font-display font-bold text-chrome mb-6" style="font-size:clamp(2.8rem,6vw,5rem);line-height:1.05;letter-spacing:-0.03em;font-weight:700;">
+        Roadside-Ready<br/>Mechanics,<br/><span class="text-ember-accent">On Demand.</span>
+      </h1>
+      <p class="text-ash text-lg mb-8" data-hero-sub style="max-width:480px;line-height:1.75;">
+        Your driveway is our shop. PitCrew dispatches ASE&#8209;certified technicians directly to you — no tow truck, no waiting rooms, no surprises.
+      </p>
+      <div class="flex flex-wrap gap-4 mb-12" data-hero-cta>
+        <a href="#contact" class="btn-ember magnetic">
+          Book a Mechanic
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        </a>
+        <a href="#services" class="btn-ghost magnetic">
+          See Services
+        </a>
+      </div>
+      <!-- Trust strip -->
+      <div class="flex flex-wrap gap-6" data-hero-trust style="border-top:1px solid rgba(255,255,255,.08);padding-top:28px;">
+        <div>
+          <div class="font-mono text-xs text-ash uppercase tracking-widest mb-1">Rating</div>
+          <div class="flex items-center gap-1">
+            <span style="color:#FFB347;font-size:18px;">★★★★★</span>
+            <span class="font-display font-bold text-chrome ml-1">5.0</span>
+          </div>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,.08);"></div>
+        <div>
+          <div class="font-mono text-xs text-ash uppercase tracking-widest mb-1">Jobs Done</div>
+          <div class="font-display font-bold text-chrome text-lg">2,400+</div>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,.08);"></div>
+        <div>
+          <div class="font-mono text-xs text-ash uppercase tracking-widest mb-1">Availability</div>
+          <div class="font-display font-bold text-chrome text-lg">24/7</div>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,.08);"></div>
+        <div>
+          <div class="font-mono text-xs text-ash uppercase tracking-widest mb-1">Avg ETA</div>
+          <div class="font-display font-bold text-chrome text-lg">&lt; 45 min</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right — 3D canvas -->
+    <div class="relative flex items-center justify-center" data-hero-canvas style="height:520px;">
+      <div id="hero-canvas" class="w-full h-full rounded-2xl overflow-hidden relative">
+        <canvas id="three-canvas" style="width:100%;height:100%;display:block;"></canvas>
+      </div>
+      <!-- Mobile fallback -->
+      <div id="hero-canvas-fallback" class="w-full h-full items-center justify-center">
+        <svg viewBox="0 0 200 200" width="260" height="260" xmlns="http://www.w3.org/2000/svg" aria-label="Wrench illustration">
+          <defs>
+            <radialGradient id="wg" cx="40%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#E5E7EB"/>
+              <stop offset="100%" stop-color="#6B7280"/>
+            </radialGradient>
+          </defs>
+          <rect x="80" y="30" width="30" height="140" rx="8" fill="url(#wg)" opacity=".9"/>
+          <rect x="60" y="25" width="70" height="35" rx="10" fill="url(#wg)"/>
+          <rect x="62" y="138" width="66" height="35" rx="10" fill="url(#wg)"/>
+          <circle cx="100" cy="100" r="16" fill="#FF6A1A" opacity=".85"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator — tachometer -->
+  <a href="#services" class="hero-scroll" aria-label="Scroll to services" data-cursor="hover">
+    <div class="tachometer" id="hero-tach">
+      <svg viewBox="0 0 56 56">
+        <circle class="tach-bg" cx="28" cy="28" r="24" stroke-dasharray="113 50" transform="rotate(135 28 28)"/>
+        <circle class="tach-fill" cx="28" cy="28" r="24" stroke-dasharray="113 200" stroke-dashoffset="113" transform="rotate(135 28 28)"/>
+      </svg>
+      <div class="tach-needle" id="tach-needle">
+        <svg viewBox="0 0 56 56"><line x1="28" y1="28" x2="28" y2="10" stroke="var(--ember)" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="tach-rpm" id="tach-rpm">000</div>
+    </div>
+    <span class="hs-label" style="margin-top:6px;">Scroll · RPM</span>
+  </a>
+</section>
+
+<!-- ════════════════════════════════════════ STATS STRIP ═══ -->
+<section class="py-20 relative" style="background:var(--graphite);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1711386689622-1cda23e10217?auto=format&fit=crop&w=1400&h=400&q=80');background-size:cover;background-position:center;opacity:0.07;pointer-events:none;"></div>
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+      <div class="reveal">
+        <div class="stat-num" data-count="2400" data-suffix="+" aria-live="polite">0</div>
+        <div class="stat-accent"></div>
+        <div class="font-mono text-xs text-ash uppercase tracking-widest">Jobs Completed</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num" data-count="45" data-prefix="&lt;" data-suffix=" min" aria-live="polite">0</div>
+        <div class="stat-accent"></div>
+        <div class="font-mono text-xs text-ash uppercase tracking-widest">Avg Response Time</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num" data-count="12" aria-live="polite">0</div>
+        <div class="stat-accent"></div>
+        <div class="font-mono text-xs text-ash uppercase tracking-widest">Cities Served</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num" data-count="50" data-suffix="k+" aria-live="polite">0</div>
+        <div class="stat-accent"></div>
+        <div class="font-mono text-xs text-ash uppercase tracking-widest">Miles Driven</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ SERVICES BENTO ═══ -->
+<section id="services" class="py-28 max-w-7xl mx-auto px-6">
+  <div class="mb-16 reveal">
+    <div class="section-label mb-3">What We Fix</div>
+    <h2 class="font-display font-bold text-chrome text-4xl md:text-5xl" style="letter-spacing:-0.03em;font-weight:700;">Services We Bring<br/><span class="text-ember-accent">To Your Door</span></h2>
+  </div>
+  <div class="bento-grid">
+    <!-- Battery Jump -->
+    <div class="card lift reveal" style="padding:28px;min-height:220px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1597766325363-f5576d851d6a?auto=format&fit=crop&w=900&h=400&q=80');background-size:cover;background-position:center;opacity:0.1;"></div>
+      <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,106,26,.12) 0%,transparent 70%);pointer-events:none;"></div>
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 ember-glow" style="background:rgba(255,106,26,.15);border:1px solid rgba(255,106,26,.3);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ember)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <h3 class="font-display font-bold text-chrome text-lg mb-2" style="letter-spacing:-0.02em;">Battery Jump &amp; Replacement</h3>
+      <p class="text-ash text-sm" style="line-height:1.7;">Dead battery? We're there in under an hour. Jump-starts and full OEM battery swaps on-site.</p>
+    </div>
+
+    <!-- Tire Change -->
+    <div class="card lift reveal" style="padding:28px;min-height:220px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1571335746824-742511d49bce?auto=format&fit=crop&w=600&h=400&q=80');background-size:cover;background-position:center;opacity:0.09;"></div>
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 ember-glow" style="background:rgba(255,106,26,.15);border:1px solid rgba(255,106,26,.3);position:relative;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ember)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+      </div>
+      <h3 class="font-display font-bold text-chrome text-lg mb-2" style="letter-spacing:-0.02em;">Tire Change &amp; Rotation</h3>
+      <p class="text-ash text-sm" style="line-height:1.7;">Flat tire or scheduled rotation — we handle it wherever you are.</p>
+    </div>
+
+    <!-- Brake Service -->
+    <div class="card lift reveal" style="padding:28px;min-height:220px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1761040100230-8c8e6fc64638?auto=format&fit=crop&w=600&h=400&q=80');background-size:cover;background-position:center;opacity:0.09;"></div>
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 ember-glow" style="background:rgba(255,106,26,.15);border:1px solid rgba(255,106,26,.3);position:relative;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ember)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="21"/><line x1="3" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg>
+      </div>
+      <h3 class="font-display font-bold text-chrome text-lg mb-2" style="letter-spacing:-0.02em;">Brake Service</h3>
+      <p class="text-ash text-sm" style="line-height:1.7;">Pad replacements, rotor resurfacing, fluid flush — full brake system serviced at your location.</p>
+    </div>
+
+    <!-- Diagnostics -->
+    <div class="card lift reveal" style="padding:28px;min-height:220px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1653607240501-92c08ed94c7f?auto=format&fit=crop&w=600&h=400&q=80');background-size:cover;background-position:center;opacity:0.09;"></div>
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 ember-glow" style="background:rgba(255,106,26,.15);border:1px solid rgba(255,106,26,.3);position:relative;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ember)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h3 class="font-display font-bold text-chrome text-lg mb-2" style="letter-spacing:-0.02em;">OBD Diagnostics</h3>
+      <p class="text-ash text-sm" style="line-height:1.7;">Check engine light? We run a full computer scan, explain results, and quote repairs on the spot.</p>
+    </div>
+
+    <!-- Oil Change -->
+    <div class="card lift reveal" style="padding:28px;min-height:220px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1613214293055-5678e2f6d7de?auto=format&fit=crop&w=600&h=400&q=80');background-size:cover;background-position:center;opacity:0.09;"></div>
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 ember-glow" style="background:rgba(255,106,26,.15);border:1px solid rgba(255,106,26,.3);position:relative;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ember)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+      </div>
+      <h3 class="font-display font-bold text-chrome text-lg mb-2" style="letter-spacing:-0.02em;">Oil &amp; Filter Change</h3>
+      <p class="text-ash text-sm" style="line-height:1.7;">Synthetic or conventional, done in your driveway in 30 minutes or less.</p>
+    </div>
+
+    <!-- Pre-Purchase Inspection -->
+    <div class="card lift reveal" style="padding:28px;min-height:220px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1762912297981-ee1a51f4f187?auto=format&fit=crop&w=900&h=400&q=80');background-size:cover;background-position:center;opacity:0.1;"></div>
+      <div style="position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,106,26,.1) 0%,transparent 70%);pointer-events:none;"></div>
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 ember-glow" style="background:rgba(255,106,26,.15);border:1px solid rgba(255,106,26,.3);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ember)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <h3 class="font-display font-bold text-chrome text-lg mb-2" style="letter-spacing:-0.02em;">Pre-Purchase Inspection</h3>
+      <p class="text-ash text-sm" style="line-height:1.7;">Buying a used car? We meet you at the seller's location and give you a 150-point inspection report.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ HOW IT WORKS ═══ -->
+<section class="py-28 relative" style="background:var(--graphite);border-top:1px solid rgba(255,255,255,.06);">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="section-label mb-3">Simple Process</div>
+      <h2 class="font-display font-bold text-chrome text-4xl md:text-5xl" style="letter-spacing:-0.03em;font-weight:700;">Three Steps to<br/><span class="text-ember-accent">Back on the Road</span></h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 relative" id="steps-grid">
+      <!-- Scroll-drawn connecting line -->
+      <div class="steps-line" aria-hidden="true">
+        <svg viewBox="0 0 1000 4" preserveAspectRatio="none"><path d="M0 2 Q 250 -2 500 2 T 1000 2"/></svg>
+      </div>
+      <div class="timeline-step text-center reveal">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background:linear-gradient(135deg,var(--ember),var(--ember-deep));box-shadow:0 12px 40px rgba(255,106,26,.4);">
+          <span class="font-display font-bold text-white text-xl">1</span>
+        </div>
+        <h3 class="font-display font-bold text-chrome text-xl mb-3" style="letter-spacing:-0.02em;">Book in 60 Seconds</h3>
+        <p class="text-ash text-sm" style="line-height:1.75;">Fill out our quick form or call (512) 555-0142. Tell us your location, vehicle, and the issue. No account needed.</p>
+      </div>
+      <div class="timeline-step text-center reveal" style="transition-delay:0.1s;">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background:linear-gradient(135deg,var(--ember),var(--ember-deep));box-shadow:0 12px 40px rgba(255,106,26,.4);">
+          <span class="font-display font-bold text-white text-xl">2</span>
+        </div>
+        <h3 class="font-display font-bold text-chrome text-xl mb-3" style="letter-spacing:-0.02em;">We Roll to You</h3>
+        <p class="text-ash text-sm" style="line-height:1.75;">Marcus and his team load up the truck and head your way. You'll get a live ETA SMS and a photo of your technician.</p>
+      </div>
+      <div class="timeline-step text-center reveal" style="transition-delay:0.2s;">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background:linear-gradient(135deg,var(--ember),var(--ember-deep));box-shadow:0 12px 40px rgba(255,106,26,.4);">
+          <span class="font-display font-bold text-white text-xl">3</span>
+        </div>
+        <h3 class="font-display font-bold text-chrome text-xl mb-3" style="letter-spacing:-0.02em;">Fixed. You're Free.</h3>
+        <p class="text-ash text-sm" style="line-height:1.75;">Pay when the job's done — card, Apple Pay, or cash. Digital receipt sent instantly. 90-day parts &amp; labor warranty.</p>
+      </div>
+    </div>
+
+    <!-- Dispatch callout (no background image) -->
+    <div class="mt-20 reveal card-float" style="border-radius:20px;position:relative;padding:48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;overflow:hidden;">
+      <!-- Decorative gradient blobs -->
+      <div style="position:absolute;top:-80px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,106,26,.18) 0%,transparent 70%);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:-100px;left:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,106,26,.08) 0%,transparent 70%);pointer-events:none;"></div>
+      <div style="position:relative;">
+        <div class="section-label mb-3">24/7 Dispatch</div>
+        <h3 class="font-display font-bold text-chrome" style="font-size:clamp(1.5rem,3vw,2.5rem);letter-spacing:-0.03em;font-weight:700;line-height:1.1;">Fully stocked truck,<br/>always ready to roll.</h3>
+        <p class="text-ash mt-3 text-sm" style="max-width:420px;line-height:1.7;">Our service vehicles carry 98% of the parts needed for same-visit fixes. No waiting on a parts order — we fix it today.</p>
+      </div>
+      <!-- Ember badge -->
+      <div style="position:relative;background:linear-gradient(135deg,var(--ember),var(--ember-deep));border-radius:14px;padding:18px 26px;box-shadow:0 12px 40px rgba(255,106,26,.4);">
+        <div class="font-mono text-xs text-white uppercase tracking-widest mb-1" style="opacity:.85;">Response Time</div>
+        <div class="font-display font-bold text-white" style="font-size:2rem;letter-spacing:-0.02em;line-height:1;">&lt; 45 min</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ RECENT WORK ═══ -->
+<section id="work" class="py-28 max-w-7xl mx-auto px-6">
+  <div class="mb-16 reveal">
+    <div class="section-label mb-3">Recent Work</div>
+    <h2 class="font-display font-bold text-chrome text-4xl md:text-5xl" style="letter-spacing:-0.03em;font-weight:700;">Jobs Fresh Off<br/><span class="text-ember-accent">the Truck</span></h2>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4" style="grid-auto-rows:240px;">
+    <div class="job-card reveal lift" style="grid-row:span 2;">
+      <img src="https://images.unsplash.com/photo-1682189165011-d4305d2b0ced?auto=format&fit=crop&w=600&h=800&q=80" alt="Brake Service" loading="lazy"/>
+      <div class="job-overlay"></div>
+      <span class="job-tag">● Brakes</span>
+      <div class="job-info">
+        <div class="font-display font-bold text-white text-lg">Full Brake Service</div>
+        <div class="job-meta font-mono text-xs text-ash uppercase tracking-widest">2018 Toyota Camry · 2.5 hrs</div>
+        <a href="#contact" class="job-cta job-cta-link" data-cursor="hover">View case study
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="job-card reveal lift">
+      <img src="https://plus.unsplash.com/premium_photo-1661299258522-1d5cc89d6b22?auto=format&fit=crop&w=600&h=400&q=80" alt="Oil Change" loading="lazy"/>
+      <div class="job-overlay"></div>
+      <span class="job-tag">● Oil &amp; Filter</span>
+      <div class="job-info">
+        <div class="font-display font-bold text-white text-base">Synthetic Oil Change</div>
+        <div class="job-meta font-mono text-xs text-ash uppercase tracking-widest">2021 BMW 3 Series · 45 min</div>
+        <a href="#contact" class="job-cta job-cta-link" data-cursor="hover">View case study
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="job-card reveal lift">
+      <img src="https://images.unsplash.com/photo-1592318348310-f31b61a931c8?auto=format&fit=crop&w=600&h=400&q=80" alt="Battery" loading="lazy"/>
+      <div class="job-overlay"></div>
+      <span class="job-tag">● Battery</span>
+      <div class="job-info">
+        <div class="font-display font-bold text-white text-base">Battery Replacement</div>
+        <div class="job-meta font-mono text-xs text-ash uppercase tracking-widest">2019 Ford F-150 · 30 min</div>
+        <a href="#contact" class="job-cta job-cta-link" data-cursor="hover">View case study
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="job-card reveal lift">
+      <img src="https://images.unsplash.com/photo-1727893380169-4dda123e19f7?auto=format&fit=crop&w=600&h=400&q=80" alt="Diagnostics" loading="lazy"/>
+      <div class="job-overlay"></div>
+      <span class="job-tag">● Diagnostics</span>
+      <div class="job-info">
+        <div class="font-display font-bold text-white text-base">OBD Scan &amp; Repair</div>
+        <div class="job-meta font-mono text-xs text-ash uppercase tracking-widest">2016 Honda Accord · 1.5 hrs</div>
+        <a href="#contact" class="job-cta job-cta-link" data-cursor="hover">View case study
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="job-card reveal lift">
+      <img src="https://images.unsplash.com/photo-1444947295498-07f60c19a4ff?auto=format&fit=crop&w=600&h=400&q=80" alt="Tire" loading="lazy"/>
+      <div class="job-overlay"></div>
+      <span class="job-tag">● Tires</span>
+      <div class="job-info">
+        <div class="font-display font-bold text-white text-base">Emergency Tire Swap</div>
+        <div class="job-meta font-mono text-xs text-ash uppercase tracking-widest">2020 Tesla Model 3 · 25 min</div>
+        <a href="#contact" class="job-cta job-cta-link" data-cursor="hover">View case study
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="job-card reveal lift">
+      <img src="https://images.unsplash.com/photo-1777130555776-cd7ce5425804?auto=format&fit=crop&w=600&h=400&q=80" alt="Inspection" loading="lazy"/>
+      <div class="job-overlay"></div>
+      <span class="job-tag">● Inspection</span>
+      <div class="job-info">
+        <div class="font-display font-bold text-white text-base">Pre-Purchase Inspection</div>
+        <div class="job-meta font-mono text-xs text-ash uppercase tracking-widest">2017 Jeep Wrangler · 1 hr</div>
+        <a href="#contact" class="job-cta job-cta-link" data-cursor="hover">View case study
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ TESTIMONIALS ═══ -->
+<section class="py-28 relative overflow-hidden" style="background:var(--graphite);border-top:1px solid rgba(255,255,255,.06);">
+  <div class="max-w-7xl mx-auto px-6 mb-12">
+    <div class="text-center reveal">
+      <div class="section-label mb-3">Customer Love</div>
+      <h2 class="font-display font-bold text-chrome text-4xl md:text-5xl" style="letter-spacing:-0.03em;font-weight:700;">What Austin Drivers<br/><span class="text-ember-accent">Are Saying</span></h2>
+    </div>
+  </div>
+
+  <!-- Infinite marquee -->
+  <div class="tc-marquee-outer" style="padding:20px 0;">
+    <div id="tc-marquee" style="display:flex;gap:20px;width:max-content;will-change:transform;"></div>
+  </div>
+</section>
+
+<!-- ════════════════ BRUTALIST TYPE DIVIDER ════════ -->
+<div class="type-divider" aria-hidden="true">
+  <span class="td-word" data-td-word>PITSTOP</span>
+  <div class="td-sub">Torque · Precision · Velocity</div>
+</div>
+<div class="tread-divider" aria-hidden="true"></div>
+
+<!-- ════════════════ BRAND BANNER (mechanic at work wide shot) ════════ -->
+<div style="width:100%;height:320px;overflow:hidden;position:relative;background:linear-gradient(135deg,#0f1a24 0%,#1a2535 50%,#0B0F14 100%);">
+  <img class="banner-parallax" src="https://plus.unsplash.com/premium_photo-1663134355892-728c9a39d748?auto=format&fit=crop&w=1600&h=500&q=80" alt="PitCrew mechanic at work" loading="lazy" style="width:100%;height:120%;object-fit:cover;object-position:center 40%;opacity:0;transition:opacity .6s ease;" onload="this.style.opacity='.55'"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,var(--ink) 0%,rgba(11,15,20,.6) 40%,rgba(11,15,20,.6) 60%,var(--ink) 100%);"></div>
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;">
+    <div>
+      <div class="section-label mb-3">Transparent Pricing</div>
+      <h2 class="font-display font-bold text-chrome" style="font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-0.03em;font-weight:700;">No Shop Overhead.<br/><span class="text-ember-accent">You Only Pay for the Work.</span></h2>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ PRICING ═══ -->
+<section id="pricing" class="py-28 max-w-7xl mx-auto px-6">
+  <div class="mb-8 text-center reveal">
+    <p class="text-ash mb-4">No hidden fees. No shop markup. Labor + parts, that's it.</p>
+    <div class="flex justify-center">
+      <div class="price-toggle" id="price-toggle" role="tablist" aria-label="Billing period">
+        <span class="toggle-pill" aria-hidden="true"></span>
+        <button type="button" data-period="monthly" class="active" role="tab" aria-selected="true">Monthly</button>
+        <button type="button" data-period="annual" role="tab" aria-selected="false">Annual <span class="save-tag">SAVE 20%</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="grid md:grid-cols-3 gap-6 items-start">
+    <!-- Roadside -->
+    <div class="card reveal tilt-card" style="padding:36px;" id="plan-0">
+      <div class="font-mono text-xs text-ash uppercase tracking-widest mb-4">Roadside</div>
+      <div class="flex items-end gap-2 mb-2">
+        <span class="font-display font-bold text-chrome text-5xl price-amount" data-monthly="$79" data-annual="$69" style="letter-spacing:-0.03em;font-weight:700;">$79</span>
+        <span class="text-ash mb-2 price-period" data-monthly="/ visit" data-annual="/ visit (annual)">/ visit</span>
+      </div>
+      <p class="text-ash text-sm mb-8" style="line-height:1.7;">Pay-per-visit. Great for one-off emergencies. Parts billed at cost.</p>
+      <ul class="flex flex-col gap-3 mb-8">
+        <li class="flex items-center gap-3 text-sm"><span style="color:var(--ember);">✓</span> Jump-starts &amp; battery swaps</li>
+        <li class="flex items-center gap-3 text-sm"><span style="color:var(--ember);">✓</span> Tire changes</li>
+        <li class="flex items-center gap-3 text-sm"><span style="color:var(--ember);">✓</span> Basic diagnostics</li>
+        <li class="flex items-center gap-3 text-sm text-ash"><span>—</span> Priority dispatch</li>
+        <li class="flex items-center gap-3 text-sm text-ash"><span>—</span> Monthly oil change</li>
+      </ul>
+      <a href="#contact" class="btn-ghost w-full justify-center">Get Started</a>
+    </div>
+
+    <!-- Pro — featured -->
+    <div class="card-float reveal tilt-card" style="padding:36px;border-color:rgba(255,106,26,.35);box-shadow:0 30px 80px -40px rgba(255,106,26,.3),inset 0 1px 0 rgba(255,106,26,.2);margin-top:-16px;" id="plan-1">
+      <div class="flex items-center justify-between mb-4">
+        <div class="font-mono text-xs text-ash uppercase tracking-widest">Pro</div>
+        <span class="pricing-badge">Most Popular</span>
+      </div>
+      <div class="flex items-end gap-2 mb-2">
+        <span class="font-display font-bold text-chrome text-5xl price-amount" data-monthly="$149" data-annual="$119" style="letter-spacing:-0.03em;font-weight:700;">$149</span>
+        <span class="text-ash mb-2 price-period" data-monthly="/ month" data-annual="/ month, billed yearly">/ month</span>
+      </div>
+      <p class="text-ash text-sm mb-8" style="line-height:1.7;">For drivers who value peace of mind year-round. Parts at cost.</p>
+      <ul class="flex flex-col gap-3 mb-8">
+        <li class="flex items-center gap-3 text-sm"><span style="color:var(--ember);">✓</span> Everything in Roadside</li>
+        <li class="flex items-center gap-3 text-sm"><span style="color:var(--ember);">✓</span> Priority dispatch (&lt;30 min)</li>
+        <li class="flex items-center gap-3 text-sm"><span style="color:var(--ember);">✓</span> 1× oil change / month</li>
+        <li class="flex items-center gap-3 text-sm"><span style="color:var(--ember);">✓</span> Free annual inspection</li>
+        <li class="flex items-center gap-3 text-sm"><span style="color:var(--ember);">✓</span> 10% off all parts</li>
+      </ul>
+      <a href="#contact" class="btn-ember w-full justify-center">
+        Start Pro Plan
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- Fleet -->
+    <div class="card reveal tilt-card" style="padding:36px;" id="plan-2">
+      <div class="font-mono text-xs text-ash uppercase tracking-widest mb-4">Fleet</div>
+      <div class="flex items-end gap-2 mb-2">
+        <span class="font-display font-bold text-chrome text-5xl" style="letter-spacing:-0.03em;font-weight:700;">Custom</span>
+      </div>
+      <p class="text-ash text-sm mb-8" style="line-height:1.7;">5+ vehicles. Volume pricing, dedicated account manager, weekly scheduled visits.</p>
+      <ul class="flex flex-col gap-3 mb-8">
+        <li class="flex items-center gap-3 text-sm"><span style="color:var(--ember);">✓</span> Everything in Pro</li>
+        <li class="flex items-center gap-3 text-sm"><span style="color:var(--ember);">✓</span> Dedicated account manager</li>
+        <li class="flex items-center gap-3 text-sm"><span style="color:var(--ember);">✓</span> Weekly fleet maintenance</li>
+        <li class="flex items-center gap-3 text-sm"><span style="color:var(--ember);">✓</span> Custom SLA &amp; reporting</li>
+        <li class="flex items-center gap-3 text-sm"><span style="color:var(--ember);">✓</span> Net-30 invoicing</li>
+      </ul>
+      <a href="#contact" class="btn-ghost w-full justify-center">Contact Sales</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ ABOUT ═══ -->
+<section id="about" class="py-28 relative" style="background:var(--graphite);border-top:1px solid rgba(255,255,255,.06);">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <!-- Portrait -->
+      <div class="reveal">
+        <div class="relative inline-block">
+          <img src="https://plus.unsplash.com/premium_photo-1682147836683-75f42f4f1c59?auto=format&fit=crop&w=480&h=560&q=80" alt="Marcus Reyes — ASE Master Technician" class="rounded-2xl" loading="lazy" width="480" height="560" style="width:100%;max-width:480px;display:block;"/>
+          <div class="absolute inset-0 rounded-2xl" style="background:linear-gradient(to top,rgba(11,15,20,.8) 0%,rgba(11,15,20,.15) 55%,transparent 100%);"></div>
+          <div class="absolute inset-0 rounded-2xl" style="background:linear-gradient(135deg,rgba(255,106,26,.12) 0%,transparent 60%);mix-blend-mode:overlay;"></div>
+          <!-- Floating badge -->
+          <div class="absolute card-float" style="bottom:24px;left:max(-24px,-4vw);padding:16px 20px;border-radius:14px;border-color:rgba(255,106,26,.3);">
+            <div class="font-mono text-xs text-ash uppercase tracking-widest mb-1">ASE Certified</div>
+            <div class="font-display font-bold text-chrome text-lg" style="letter-spacing:-0.02em;">Master Technician</div>
+            <div class="flex mt-2 gap-1">
+              <span style="color:#FFB347;font-size:14px;">★★★★★</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bio -->
+      <div class="reveal">
+        <div class="section-label mb-4">The Mechanic Behind PitCrew</div>
+        <h2 class="font-display font-bold text-chrome text-4xl mb-6" style="letter-spacing:-0.03em;font-weight:700;">Marcus Reyes,<br/><span class="text-ember-accent">15 Years on the Wrench</span></h2>
+        <p class="text-ash mb-5" style="line-height:1.8;">Born and raised in South Austin, Marcus started fixing neighbors' cars out of his parents' garage at 17. After earning his ASE Master Technician certification and spending a decade at a dealership service center, he realized the model was broken — customers waiting days for simple repairs while life stopped.</p>
+        <p class="text-ash mb-8" style="line-height:1.8;">In 2019, he launched PitCrew with one truck and a simple promise: show up fast, charge fair, fix it right. Today PitCrew handles 200+ jobs a month across the Austin metro.</p>
+
+        <!-- Cert badges -->
+        <div class="flex flex-wrap gap-3">
+          <div class="card" style="padding:10px 16px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ash);">ASE Master Tech</div>
+          <div class="card" style="padding:10px 16px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ash);">EPA 609 Certified</div>
+          <div class="card" style="padding:10px 16px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ash);">OEM Trained</div>
+          <div class="card" style="padding:10px 16px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ash);">Insured &amp; Bonded</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ FAQ ═══ -->
+<section class="py-28 max-w-4xl mx-auto px-6">
+  <div class="text-center mb-16 reveal">
+    <div class="section-label mb-3">Common Questions</div>
+    <h2 class="font-display font-bold text-chrome text-4xl md:text-5xl" style="letter-spacing:-0.03em;font-weight:700;">FAQ</h2>
+  </div>
+  <div class="flex flex-col gap-3" id="faq-list">
+    <!-- built by JS -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ CONTACT ═══ -->
+<section id="contact" class="py-28 relative" style="background:var(--graphite);border-top:1px solid rgba(255,255,255,.06);">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <!-- Form -->
+      <div class="reveal">
+        <div class="section-label mb-4">Book a Mechanic</div>
+        <h2 class="font-display font-bold text-chrome text-4xl mb-8" style="letter-spacing:-0.03em;font-weight:700;">Tell Us What's<br/><span class="text-ember-accent">Going On</span></h2>
+        <form id="contact-form" action="#" method="POST" data-demo="true">
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="form-label" for="f-name">Your Name</label>
+              <input id="f-name" class="form-input" type="text" placeholder="Jane Smith" autocomplete="name" required minlength="2" />
+            </div>
+            <div>
+              <label class="form-label" for="f-phone">Phone</label>
+              <input id="f-phone" class="form-input" type="tel" placeholder="(512) 555-0000" autocomplete="tel" required pattern="[0-9\s\-\+\(\)]{7,}" />
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-4 mb-4">
+            <div>
+              <label class="form-label" for="f-year">Year</label>
+              <input id="f-year" class="form-input" type="text" inputmode="numeric" maxlength="4" placeholder="2019" />
+            </div>
+            <div>
+              <label class="form-label" for="f-make">Make</label>
+              <input id="f-make" class="form-input" type="text" placeholder="Toyota" />
+            </div>
+            <div>
+              <label class="form-label" for="f-model">Model</label>
+              <input id="f-model" class="form-input" type="text" placeholder="Camry" />
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="f-location">Your Location</label>
+            <input id="f-location" class="form-input" type="text" placeholder="123 Main St, Austin TX" autocomplete="street-address" required />
+          </div>
+          <div class="mb-6">
+            <label class="form-label" for="f-issue">Describe the Issue</label>
+            <textarea id="f-issue" class="form-input" rows="4" placeholder="Car won't start, check engine light on, flat tire..." required minlength="6"></textarea>
+          </div>
+          <button type="submit" class="flow-btn" aria-label="Request a Mechanic">
+            <svg class="flow-arr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+            <span class="flow-text">Request a Mechanic</span>
+            <span class="flow-circle"></span>
+            <svg class="flow-arr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </button>
+          <p class="text-ash text-xs mt-3 text-center">Avg response: &lt; 45 min · Available 24/7 · No obligation quote</p>
+        </form>
+      </div>
+
+      <!-- Info + Map SVG -->
+      <div class="reveal">
+        <div class="card" style="padding:36px;margin-bottom:24px;">
+          <h3 class="font-display font-bold text-chrome text-xl mb-6" style="letter-spacing:-0.02em;">Contact &amp; Hours</h3>
+          <div class="flex flex-col gap-5">
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(255,106,26,.15);border:1px solid rgba(255,106,26,.3);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ember)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5.06 2 2 0 0 1 3.57 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.5a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.91 18z"/></svg>
+              </div>
+              <div>
+                <div class="font-mono text-xs text-ash uppercase tracking-widest mb-1">Phone</div>
+                <a href="tel:5125550142" class="text-chrome font-medium hover:text-ember transition-colors" style="text-decoration:none;">(512) 555-0142</a>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(255,106,26,.15);border:1px solid rgba(255,106,26,.3);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ember)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div class="font-mono text-xs text-ash uppercase tracking-widest mb-1">Email</div>
+                <a href="mailto:hello@pitcrew.com" class="text-chrome font-medium hover:text-ember transition-colors" style="text-decoration:none;">hello@pitcrew.com</a>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(255,106,26,.15);border:1px solid rgba(255,106,26,.3);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ember)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <div class="font-mono text-xs text-ash uppercase tracking-widest mb-1">Hours</div>
+                <div class="text-chrome font-medium">24 / 7 — 365 days a year</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(255,106,26,.15);border:1px solid rgba(255,106,26,.3);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ember)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="font-mono text-xs text-ash uppercase tracking-widest mb-1">Service Area</div>
+                <div class="text-chrome font-medium">Austin metro · 30-mile radius</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real Google Maps embed — Austin, TX -->
+        <div class="card overflow-hidden" style="padding:0;border-radius:16px;position:relative;">
+          <iframe
+            src="https://maps.google.com/maps?q=Austin,TX&z=11&output=embed"
+            width="100%"
+            height="280"
+            style="border:0;display:block;filter:invert(92%) hue-rotate(180deg) saturate(0.75) brightness(0.85);"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="PitCrew service area — Austin, TX"
+          ></iframe>
+          <!-- Coverage label overlay -->
+          <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(11,15,20,.82);backdrop-filter:blur(8px);border:1px solid rgba(255,106,26,.25);border-radius:8px;padding:6px 14px;pointer-events:none;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--ember);">30-MILE COVERAGE RADIUS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tread-divider" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════ FOOTER ═══ -->
+<footer style="background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:60px 0 40px;">
+  <div class="footer-watermark" aria-hidden="true">PITCREW</div>
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+      <div class="md:col-span-2">
+        <a href="#top" class="flex items-center gap-3 mb-4" style="text-decoration:none;" aria-label="PitCrew Home">
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--ember),var(--ember-deep));box-shadow:0 4px 20px rgba(255,106,26,.3);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <span class="font-display font-bold text-chrome text-base" style="font-weight:700;letter-spacing:-0.02em;">PitCrew Mobile Mechanics</span>
+        </a>
+        <p class="text-ash text-sm mb-6" style="line-height:1.75;max-width:340px;">Your driveway is our shop. ASE-certified mobile mechanics serving Austin TX and surrounding areas, 24/7.</p>
+        <div class="flex gap-3">
+          <a href="https://facebook.com/pitcrew" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook" data-cursor="hover">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com/pitcrew" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram" data-cursor="hover">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://x.com/pitcrew" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X (formerly Twitter)" data-cursor="hover">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.google.com/search?q=PitCrew+Mobile+Mechanics+Austin" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Google Reviews" data-cursor="hover">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          </a>
+        </div>
+        <!-- Stack badges -->
+        <div class="stack-row">
+          <span class="stack-label">Built with</span>
+          <span class="stack-badge">Three.js</span>
+          <span class="stack-badge">Motion One</span>
+          <span class="stack-badge">Tailwind</span>
+          <span class="stack-badge">Vanilla JS</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-mono text-xs text-ash uppercase tracking-widest mb-5">Services</h4>
+        <ul class="flex flex-col gap-3">
+          <li><a href="#services" class="text-ash text-sm hover:text-chrome transition-colors" style="text-decoration:none;">Battery &amp; Jump-Start</a></li>
+          <li><a href="#services" class="text-ash text-sm hover:text-chrome transition-colors" style="text-decoration:none;">Tire Change &amp; Rotation</a></li>
+          <li><a href="#services" class="text-ash text-sm hover:text-chrome transition-colors" style="text-decoration:none;">Brake Service</a></li>
+          <li><a href="#services" class="text-ash text-sm hover:text-chrome transition-colors" style="text-decoration:none;">OBD Diagnostics</a></li>
+          <li><a href="#services" class="text-ash text-sm hover:text-chrome transition-colors" style="text-decoration:none;">Oil &amp; Filter Change</a></li>
+          <li><a href="#services" class="text-ash text-sm hover:text-chrome transition-colors" style="text-decoration:none;">Pre-Purchase Inspection</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-mono text-xs text-ash uppercase tracking-widest mb-5">Company</h4>
+        <ul class="flex flex-col gap-3">
+          <li><a href="#about"   class="text-ash text-sm hover:text-chrome transition-colors" style="text-decoration:none;">About Marcus</a></li>
+          <li><a href="#work"    class="text-ash text-sm hover:text-chrome transition-colors" style="text-decoration:none;">Recent Work</a></li>
+          <li><a href="#pricing" class="text-ash text-sm hover:text-chrome transition-colors" style="text-decoration:none;">Pricing</a></li>
+          <li><a href="#contact" class="text-ash text-sm hover:text-chrome transition-colors" style="text-decoration:none;">Book Now</a></li>
+          <li><a href="tel:5125550142" class="text-ash text-sm hover:text-chrome transition-colors" style="text-decoration:none;">(512) 555-0142</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.06);padding-top:28px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <span class="font-mono text-xs text-ash">© <span id="copyright-year">2026</span> PitCrew Mobile Mechanics. Austin, TX.</span>
+      <div class="flex gap-6">
+        <a href="#" class="font-mono text-xs text-ash hover:text-chrome transition-colors" style="text-decoration:none;" onclick="event.preventDefault();alert('Privacy Policy — demo portfolio site');">Privacy Policy</a>
+        <a href="#" class="font-mono text-xs text-ash hover:text-chrome transition-colors" style="text-decoration:none;" onclick="event.preventDefault();alert('Terms of Service — demo portfolio site');">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div id="toast">Booking request sent! We'll call you within 15 minutes. 🔧</div>
+
+<!-- ═══════════════════════════════════════ SCRIPTS ═══ -->
+<script type="module">
+// ─── Motion One (animation) ───────────────────────────────────────────────
+import { animate, inView, stagger, scroll } from 'https://cdn.jsdelivr.net/npm/motion@10.18.0/+esm';
+
+const PREFERS_REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const SPRING_OUT = [0.16, 1, 0.3, 1];        // smooth spring-ish ease-out
+const SPRING_BOUNCE = [0.34, 1.56, 0.64, 1]; // subtle overshoot
+
+// ════════════════════════════════════════ NAV ════
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) {
+    nav.classList.add('nav-glass', 'shadow-nav');
+  } else {
+    nav.classList.remove('nav-glass', 'shadow-nav');
+  }
+}, { passive: true });
+
+(() => {
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  menu.classList.remove('hidden');
+  const sync = (open) => {
+    btn.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-hidden', String(!open));
+    if (open) menu.removeAttribute('inert'); else menu.setAttribute('inert', '');
+  };
+  const close = () => { menu.classList.remove('open'); sync(false); };
+  sync(false);
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    sync(open);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+})();
+
+// ════════════════════════════════════════ SCROLL PROGRESS BAR ════
+if (!PREFERS_REDUCED) {
+  scroll(animate('#scroll-progress', { transform: ['scaleX(0)', 'scaleX(1)'] }));
+}
+
+// ════════════════════════════════════════ TEXT SPLIT HELPERS ════
+// Wrap each character of an element in <span class="char-anim">, preserving
+// inline children (e.g. <span class="text-ember-accent">) and <br/>.
+function splitChars(root) {
+  const out = [];
+  const walk = (node) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const text = node.textContent;
+      if (!text.trim()) return;
+      const frag = document.createDocumentFragment();
+      text.split(/(\s+)/).forEach(part => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) {
+          frag.appendChild(document.createTextNode(part));
+          return;
+        }
+        const wordWrap = document.createElement('span');
+        wordWrap.className = 'word-wrap';
+        [...part].forEach(c => {
+          const ch = document.createElement('span');
+          ch.className = 'char-anim';
+          ch.textContent = c;
+          wordWrap.appendChild(ch);
+          out.push(ch);
+        });
+        frag.appendChild(wordWrap);
+      });
+      node.parentNode.replaceChild(frag, node);
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      [...node.childNodes].forEach(walk);
+    }
+  };
+  walk(root);
+  return out;
+}
+
+// Wrap each word in <span class="word-wrap"> (overflow:hidden, atomic) and
+// put the moving inner inside as <span class="word-anim">. Use for headlines —
+// the wrap masks the rising word so it appears to slide up from the line below.
+function splitWordsBoxed(root) {
+  const out = [];
+  const walk = (node) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const text = node.textContent;
+      if (!text.trim()) return;
+      const frag = document.createDocumentFragment();
+      text.split(/(\s+)/).forEach(part => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) {
+          frag.appendChild(document.createTextNode(part));
+          return;
+        }
+        const wrap = document.createElement('span');
+        wrap.className = 'word-wrap';
+        const inner = document.createElement('span');
+        inner.className = 'word-anim';
+        inner.textContent = part;
+        wrap.appendChild(inner);
+        frag.appendChild(wrap);
+        out.push(inner);
+      });
+      node.parentNode.replaceChild(frag, node);
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      [...node.childNodes].forEach(walk);
+    }
+  };
+  walk(root);
+  return out;
+}
+
+// Wrap each word in <span class="word-anim">
+function splitWords(root) {
+  const out = [];
+  const walk = (node) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const text = node.textContent;
+      if (!text.trim()) return;
+      const frag = document.createDocumentFragment();
+      text.split(/(\s+)/).forEach(part => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) {
+          frag.appendChild(document.createTextNode(part));
+        } else {
+          const span = document.createElement('span');
+          span.className = 'word-anim';
+          span.textContent = part;
+          frag.appendChild(span);
+          out.push(span);
+        }
+      });
+      node.parentNode.replaceChild(frag, node);
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      [...node.childNodes].forEach(walk);
+    }
+  };
+  walk(root);
+  return out;
+}
+
+// ════════════════════════════════════════ HERO ENTRANCE ════
+function heroIntro() {
+  const headline = document.getElementById('hero-headline');
+  if (!headline) return;
+
+  // Per-word reveal (atomic — words never break internally)
+  const words = splitWordsBoxed(headline);
+  // Re-apply gradient text styling to words inside .text-ember-accent — the
+  // parent's `background-clip: text` doesn't clip cleanly across nested
+  // inline-blocks, so we move the gradient onto each word span individually.
+  words.forEach(w => {
+    if (w.closest('.text-ember-accent')) {
+      w.classList.add('text-ember-accent');
+    }
+  });
+  const label = document.querySelector('[data-hero-label]');
+  const sub   = document.querySelector('[data-hero-sub]');
+  const cta   = document.querySelector('[data-hero-cta]');
+  const trust = document.querySelector('[data-hero-trust]');
+  const canvas = document.querySelector('[data-hero-canvas]');
+
+  if (PREFERS_REDUCED) {
+    words.forEach(c => { c.style.transform = 'none'; c.style.opacity = '1'; });
+    [label, sub, cta, trust, canvas].forEach(el => {
+      if (!el) return;
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+    return;
+  }
+
+  // Label fades in
+  if (label) {
+    label.style.opacity = '0';
+    animate(label, { opacity: [0, 1], y: [12, 0] },
+      { duration: 0.6, easing: SPRING_OUT });
+  }
+
+  // Headline — words rise from below an overflow:hidden mask, stagger
+  animate(words,
+    { transform: ['translateY(110%)', 'translateY(0%)'], opacity: [0, 1] },
+    { duration: 0.9, delay: stagger(0.07, { start: 0.15 }), easing: SPRING_OUT }
+  );
+
+  // Subtitle — fade up + slight blur clear
+  if (sub) {
+    sub.style.opacity = '0';
+    sub.style.transform = 'translateY(24px)';
+    sub.style.filter = 'blur(6px)';
+    animate(sub,
+      { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0px)'], filter: ['blur(6px)', 'blur(0px)'] },
+      { duration: 0.9, delay: 0.55, easing: SPRING_OUT }
+    );
+  }
+
+  // Buttons — pop in with subtle bounce, stagger
+  if (cta) {
+    const btns = cta.querySelectorAll('a');
+    btns.forEach(b => { b.style.opacity = '0'; b.style.transform = 'translateY(16px) scale(0.94)'; });
+    animate(btns,
+      { opacity: [0, 1], transform: ['translateY(16px) scale(0.94)', 'translateY(0px) scale(1)'] },
+      { duration: 0.6, delay: stagger(0.08, { start: 0.85 }), easing: SPRING_BOUNCE }
+    );
+  }
+
+  // Trust strip — items stagger in from below
+  if (trust) {
+    const items = [...trust.children].filter(c => !/width:1px/.test(c.getAttribute('style') || ''));
+    items.forEach(i => { i.style.opacity = '0'; i.style.transform = 'translateY(14px)'; });
+    animate(items,
+      { opacity: [0, 1], transform: ['translateY(14px)', 'translateY(0px)'] },
+      { duration: 0.6, delay: stagger(0.06, { start: 1.05 }), easing: SPRING_OUT }
+    );
+  }
+
+  // Right canvas — fade + scale in
+  if (canvas) {
+    canvas.style.opacity = '0';
+    canvas.style.transform = 'scale(0.94)';
+    animate(canvas,
+      { opacity: [0, 1], transform: ['scale(0.94)', 'scale(1)'] },
+      { duration: 1.1, delay: 0.35, easing: SPRING_OUT }
+    );
+  }
+}
+heroIntro();
+
+// ════════════════════════════════════════ HERO PARALLAX ════
+if (!PREFERS_REDUCED) {
+  const heroSection = document.querySelector('.hero-bg');
+  const ring1 = document.querySelector('.hero-ring[data-ring="1"]');
+  const ring2 = document.querySelector('.hero-ring[data-ring="2"]');
+  const heroBgImg = document.querySelector('.hero-bg-img');
+
+  if (heroSection) {
+    if (ring1) {
+      scroll(animate(ring1, { transform: ['translateY(-50%) rotate(0deg)', 'translateY(calc(-50% - 160px)) rotate(25deg)'] }, { easing: 'linear' }),
+        { target: heroSection, offset: ['start start', 'end start'] });
+    }
+    if (ring2) {
+      scroll(animate(ring2, { transform: ['translateY(-50%) rotate(0deg)', 'translateY(calc(-50% + 110px)) rotate(-20deg)'] }, { easing: 'linear' }),
+        { target: heroSection, offset: ['start start', 'end start'] });
+    }
+    if (heroBgImg) {
+      scroll(animate(heroBgImg, { transform: ['translateY(0px) scale(1)', 'translateY(60px) scale(1.08)'] }, { easing: 'linear' }),
+        { target: heroSection, offset: ['start start', 'end start'] });
+    }
+  }
+}
+
+// ════════════════════════════════════════ SECTION HEADING WORD-REVEAL ════
+// Every <h2> inside a <section> gets its words staggered in on scroll.
+function setupHeadingReveal(h) {
+  if (PREFERS_REDUCED) return;
+  const words = splitWords(h);
+  if (!words.length) return;
+  // Move the .text-ember-accent gradient onto each inner word so the gradient
+  // text actually renders (background-clip:text breaks across nested inline-blocks).
+  words.forEach(w => {
+    if (w.closest('.text-ember-accent')) w.classList.add('text-ember-accent');
+  });
+  inView(h, () => {
+    animate(words,
+      { opacity: [0, 1], transform: ['translateY(40%)', 'translateY(0%)'] },
+      { duration: 0.75, delay: stagger(0.05), easing: SPRING_OUT }
+    );
+  }, { margin: '-80px' });
+}
+
+document.querySelectorAll('section h2').forEach(setupHeadingReveal);
+const bannerH2 = document.querySelector('div[style*="height:320px"] h2');
+if (bannerH2) setupHeadingReveal(bannerH2);
+
+// ════════════════════════════════════════ GENERIC REVEAL (fallback for .reveal) ════
+// .reveal not consumed by hero/heading/etc. — slide-up + fade with stagger.
+inView('.reveal', ({ target }) => {
+  target.classList.add('visible');
+  if (PREFERS_REDUCED) return;
+  // If it has children that look like a list/grid, stagger them; otherwise animate self.
+  const grid = target.matches('.bento-grid, .grid') ? target : target.querySelector(':scope > .bento-grid, :scope > .grid');
+}, { margin: '-60px' });
+
+// ════════════════════════════════════════ STAGGERED CARD GRIDS ════
+// Services bento — each card slides up with rotation+scale, stagger
+const servicesGrid = document.querySelector('#services .bento-grid');
+if (servicesGrid && !PREFERS_REDUCED) {
+  const cards = servicesGrid.querySelectorAll(':scope > .card, :scope > .bento-wide');
+  cards.forEach(c => {
+    c.classList.remove('reveal'); // prevent double anim
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(50px) scale(0.96)';
+  });
+  inView(servicesGrid, () => {
+    animate(cards,
+      { opacity: [0, 1], transform: ['translateY(50px) scale(0.96)', 'translateY(0px) scale(1)'] },
+      { duration: 0.7, delay: stagger(0.08), easing: SPRING_OUT }
+    );
+  }, { margin: '-100px' });
+}
+
+// How-it-works steps — stagger up with slight overshoot
+document.querySelectorAll('.timeline-step').forEach(el => el.classList.remove('reveal'));
+const stepsContainer = document.querySelector('.timeline-step')?.parentElement;
+if (stepsContainer && !PREFERS_REDUCED) {
+  const steps = stepsContainer.querySelectorAll('.timeline-step');
+  steps.forEach(s => { s.style.opacity = '0'; s.style.transform = 'translateY(40px) scale(0.95)'; });
+  inView(stepsContainer, () => {
+    animate(steps,
+      { opacity: [0, 1], transform: ['translateY(40px) scale(0.95)', 'translateY(0px) scale(1)'] },
+      { duration: 0.7, delay: stagger(0.13), easing: SPRING_BOUNCE }
+    );
+  }, { margin: '-80px' });
+}
+
+// Recent Work gallery — stagger with alternating directions
+const workGrid = document.querySelector('#work .grid');
+if (workGrid && !PREFERS_REDUCED) {
+  const cards = workGrid.querySelectorAll('.job-card');
+  cards.forEach((c, i) => {
+    c.classList.remove('reveal');
+    c.style.opacity = '0';
+    c.style.transform = (i % 2 === 0)
+      ? 'translateY(40px) scale(0.94)'
+      : 'translateY(60px) scale(0.94)';
+  });
+  inView(workGrid, () => {
+    animate(cards,
+      { opacity: [0, 1], transform: ['translateY(50px) scale(0.94)', 'translateY(0px) scale(1)'] },
+      { duration: 0.8, delay: stagger(0.07), easing: SPRING_OUT }
+    );
+  }, { margin: '-80px' });
+}
+
+// Pricing cards — featured pops more
+const pricingGrid = document.querySelector('#pricing .grid');
+if (pricingGrid && !PREFERS_REDUCED) {
+  const cards = pricingGrid.querySelectorAll(':scope > .card, :scope > .card-float');
+  cards.forEach(c => {
+    c.classList.remove('reveal');
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(60px) scale(0.95)';
+  });
+  inView(pricingGrid, () => {
+    animate(cards,
+      { opacity: [0, 1], transform: ['translateY(60px) scale(0.95)', 'translateY(0px) scale(1)'] },
+      { duration: 0.85, delay: stagger(0.12, { start: 0.05 }), easing: SPRING_BOUNCE }
+    );
+  }, { margin: '-100px' });
+}
+
+// About — image slides from left, bio from right
+const aboutGrid = document.querySelector('#about .grid');
+if (aboutGrid && !PREFERS_REDUCED) {
+  const cells = aboutGrid.querySelectorAll(':scope > div');
+  cells.forEach((c, i) => {
+    c.classList.remove('reveal');
+    c.style.opacity = '0';
+    c.style.transform = i === 0 ? 'translateX(-50px)' : 'translateX(50px)';
+  });
+  inView(aboutGrid, () => {
+    animate(cells,
+      { opacity: [0, 1], transform: ['translateX(0px)'] },
+      { duration: 0.9, delay: stagger(0.12), easing: SPRING_OUT }
+    );
+    // Cert badges within bio — secondary stagger
+    const badges = aboutGrid.querySelectorAll('.flex-wrap > .card');
+    badges.forEach(b => { b.style.opacity = '0'; b.style.transform = 'translateY(14px) scale(0.9)'; });
+    animate(badges,
+      { opacity: [0, 1], transform: ['translateY(14px) scale(0.9)', 'translateY(0px) scale(1)'] },
+      { duration: 0.5, delay: stagger(0.06, { start: 0.6 }), easing: SPRING_BOUNCE }
+    );
+  }, { margin: '-100px' });
+}
+
+// Contact form fields — stagger up
+const contactForm = document.getElementById('contact-form');
+if (contactForm && !PREFERS_REDUCED) {
+  const fields = contactForm.querySelectorAll(':scope > div, :scope > button');
+  fields.forEach(f => { f.style.opacity = '0'; f.style.transform = 'translateY(18px)'; });
+  inView(contactForm, () => {
+    animate(fields,
+      { opacity: [0, 1], transform: ['translateY(18px)', 'translateY(0px)'] },
+      { duration: 0.6, delay: stagger(0.07), easing: SPRING_OUT }
+    );
+  }, { margin: '-60px' });
+}
+
+// ════════════════════════════════════════ BANNER PARALLAX ════
+const bannerImg = document.querySelector('.banner-parallax');
+if (bannerImg && !PREFERS_REDUCED) {
+  scroll(animate(bannerImg, { transform: ['translateY(-8%)', 'translateY(8%)'] }, { easing: 'linear' }),
+    { target: bannerImg.parentElement, offset: ['start end', 'end start'] });
+}
+
+// Stats section bg image parallax
+const statsSection = document.querySelector('.stat-num')?.closest('section');
+const statsBg = statsSection?.querySelector(':scope > div[style*="background-image"]');
+if (statsBg && !PREFERS_REDUCED) {
+  scroll(animate(statsBg, { transform: ['translateY(-30px)', 'translateY(30px)'] }, { easing: 'linear' }),
+    { target: statsSection, offset: ['start end', 'end start'] });
+}
+
+// ════════════════════════════════════════ MAGNETIC BUTTONS ════
+if (!PREFERS_REDUCED && window.matchMedia('(hover: hover)').matches) {
+  document.querySelectorAll('.magnetic').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const dx = (e.clientX - (r.left + r.width / 2)) * 0.18;
+      const dy = (e.clientY - (r.top  + r.height / 2)) * 0.25;
+      btn.style.transform = `translate(${dx}px, ${dy}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+}
+
+// ════════════════════════════════════════ NAV LINKS — slide-down on load ════
+if (!PREFERS_REDUCED) {
+  const navLinks = document.querySelectorAll('nav .nav-link, nav a[aria-label="PitCrew Home"], nav .btn-ember');
+  navLinks.forEach(l => { l.style.opacity = '0'; l.style.transform = 'translateY(-12px)'; });
+  animate(navLinks,
+    { opacity: [0, 1], transform: ['translateY(-12px)', 'translateY(0px)'] },
+    { duration: 0.55, delay: stagger(0.05), easing: SPRING_OUT }
+  );
+}
+
+// ════════════════════════════════════════ STATS COUNT-UP ════
+function countUp(el) {
+  const target  = parseInt(el.dataset.count, 10);
+  const prefix  = el.dataset.prefix  ?? '';
+  const suffix  = el.dataset.suffix  ?? '';
+  const duration = 1800;
+  const start   = performance.now();
+
+  function tick(now) {
+    const elapsed  = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease     = 1 - Math.pow(1 - progress, 4);
+    el.textContent = prefix + Math.round(ease * target).toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+const statEls = document.querySelectorAll('.stat-num[data-count]');
+statEls.forEach(el => {
+  inView(el, () => countUp(el), { margin: '-40px' });
+});
+// Hard fallback — trigger count-up on any stat already near viewport after 2s
+setTimeout(() => {
+  statEls.forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight + 200) countUp(el);
+  });
+}, 2000);
+
+// ════════════════════════════════════════ TESTIMONIAL MARQUEE ════
+const testimonials = [
+  { name: 'Sarah T.',  vehicle: '2020 RAV4',       stars: 5, avatar: 'https://randomuser.me/api/portraits/women/23.jpg', text: 'Marcus was there in 38 minutes and had my battery replaced in 20. Absolute lifesaver on a Monday morning.' },
+  { name: 'James K.',  vehicle: '2018 Mustang GT', stars: 5, avatar: 'https://randomuser.me/api/portraits/men/45.jpg',   text: 'Brake job done in my office parking lot. No shop smell, no waiting. Pricing was super transparent.' },
+  { name: 'Maria L.',  vehicle: '2022 Model Y',    stars: 5, avatar: 'https://randomuser.me/api/portraits/women/67.jpg', text: 'I was skeptical about a mobile mechanic for EV diagnostics but Marcus knew his stuff. Problem solved.' },
+  { name: 'Tom B.',    vehicle: '2016 F-150',      stars: 5, avatar: 'https://randomuser.me/api/portraits/men/12.jpg',   text: 'Pre-purchase inspection saved me from a lemon. He caught $4k of hidden issues. Worth every penny.' },
+  { name: 'Diana R.',  vehicle: '2019 Civic',      stars: 5, avatar: 'https://randomuser.me/api/portraits/women/34.jpg', text: 'Oil change and tire rotation done while I worked from home. I\'ll never go to a shop again.' },
+  { name: 'Alex M.',   vehicle: '2021 Silverado',  stars: 5, avatar: 'https://randomuser.me/api/portraits/men/78.jpg',   text: 'Fast, fair, and friendly. Helped me understand what was wrong without talking down to me.' },
+  { name: 'Priya S.',  vehicle: '2017 Accord',     stars: 5, avatar: 'https://randomuser.me/api/portraits/women/55.jpg', text: 'Check engine light was stressing me out. Marcus diagnosed and fixed it same afternoon. 5 stars.' },
+  { name: 'Ryan C.',   vehicle: '2015 Subaru WRX', stars: 5, avatar: 'https://randomuser.me/api/portraits/men/90.jpg',   text: 'Fleet of 8 vans — PitCrew handles all our maintenance on-site. Saved us thousands in downtime.' },
+];
+
+(() => {
+  const marquee = document.getElementById('tc-marquee');
+  if (!marquee) return;
+
+  const NORMAL_SPEED = 0.9;   // px per frame
+  const HOVER_SPEED  = 0.3;   // px per frame on hover
+
+  function makeCard(t) {
+    const div = document.createElement('div');
+    div.className = 'card-float';
+    div.style.cssText = 'flex-shrink:0;width:320px;padding:28px;border-radius:16px;display:flex;flex-direction:column;gap:14px;box-sizing:border-box;';
+    div.innerHTML = `
+      <div style="color:#FFB347;font-size:14px;letter-spacing:2px;">${'★'.repeat(t.stars)}</div>
+      <p style="color:var(--chrome);font-size:14px;line-height:1.75;flex:1;">"${t.text}"</p>
+      <div style="display:flex;align-items:center;gap:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07);">
+        <img src="${t.avatar}" alt="${t.name}" loading="lazy" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,106,26,.35);" onerror="this.style.display='none'"/>
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--chrome);font-size:14px;">${t.name}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ash);letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">${t.vehicle}</div>
+        </div>
+      </div>`;
+    return div;
+  }
+
+  // Build two full sets for seamless looping
+  testimonials.forEach(t => marquee.appendChild(makeCard(t)));
+  testimonials.forEach(t => marquee.appendChild(makeCard(t)));
+
+  let pos = 0;
+  let currentSpeed = NORMAL_SPEED;
+  let isHovered = false;
+  let halfWidth = 0;
+
+  function tick() {
+    const target = isHovered ? HOVER_SPEED : NORMAL_SPEED;
+    // Ease speed transition
+    currentSpeed += (target - currentSpeed) * 0.04;
+
+    pos -= currentSpeed;
+    if (halfWidth > 0 && pos <= -halfWidth) pos += halfWidth;
+    marquee.style.transform = `translateX(${pos}px)`;
+    requestAnimationFrame(tick);
+  }
+
+  // Measure after first paint
+  requestAnimationFrame(() => {
+    halfWidth = marquee.scrollWidth / 2;
+    tick();
+  });
+
+  marquee.addEventListener('mouseenter', () => { isHovered = true; });
+  marquee.addEventListener('mouseleave', () => { isHovered = false; });
+})();
+
+// ════════════════════════════════════════ FAQ ════
+const faqs = [
+  { q: 'What areas do you serve?', a: 'We cover Austin TX and a 30-mile radius — Round Rock, Cedar Park, Pflugerville, Kyle, Buda, Lakeway, and more. Not sure if you\'re in range? Call us.' },
+  { q: 'How quickly can you arrive?', a: 'Average ETA is under 45 minutes. Pro members get priority dispatch under 30 minutes. We\'ll give you a live ETA when you book.' },
+  { q: 'What payment methods do you accept?', a: 'We accept all major credit/debit cards, Apple Pay, Google Pay, Venmo, Zelle, and cash. You pay only after the job is complete.' },
+  { q: 'Do you offer a warranty?', a: 'Yes — all labor and parts come with a 90-day warranty. If something we fixed fails within 90 days, we come back and fix it free.' },
+  { q: 'Can you work on electric vehicles?', a: 'Absolutely. We\'re trained on EV maintenance — 12V battery service, cabin filter, brake service, tire work, and OBD diagnostics on Tesla, Rivian, and more.' },
+  { q: 'What if I need a repair you can\'t do on-site?', a: 'We\'ll tell you upfront. If a repair requires a lift or specialized shop equipment, we\'ll diagnose, give you an honest assessment, and recommend a trusted local shop.' },
+];
+
+const faqList = document.getElementById('faq-list');
+faqs.forEach((item, i) => {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'card faq-item reveal';
+  wrapper.style.cssText = 'overflow:hidden;border-radius:14px;';
+  wrapper.innerHTML = `
+    <button class="faq-trigger" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:22px 24px;background:none;border:none;color:var(--chrome);font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;letter-spacing:-0.01em;cursor:pointer;text-align:left;gap:16px;" aria-expanded="false">
+      <span>${item.q}</span>
+      <svg class="faq-chevron flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ash)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="faq-body" role="region">
+      <div style="padding:0 24px 22px;color:var(--ash);font-size:15px;line-height:1.75;">${item.a}</div>
+    </div>
+  `;
+
+  const trigger = wrapper.querySelector('.faq-trigger');
+  const body    = wrapper.querySelector('.faq-body');
+
+  trigger.addEventListener('click', () => {
+    const isOpen = wrapper.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      const b = el.querySelector('.faq-body');
+      b.classList.remove('open');
+      b.style.maxHeight = '0';
+      el.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      wrapper.classList.add('open');
+      body.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  faqList.appendChild(wrapper);
+});
+
+// ════════════════════════════════════════ FORM ════
+document.getElementById('contact-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 4500);
+  e.target.reset();
+});
+
+// ════════════════════════════════════════ CARD TILT (pricing) ════
+document.querySelectorAll('.tilt-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect   = card.getBoundingClientRect();
+    const cx     = rect.left + rect.width / 2;
+    const cy     = rect.top  + rect.height / 2;
+    const dx     = (e.clientX - cx) / (rect.width / 2);
+    const dy     = (e.clientY - cy) / (rect.height / 2);
+    card.style.transform = `perspective(1000px) rotateY(${dx * 6}deg) rotateX(${-dy * 6}deg) translateZ(4px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// ════════════════════════════════════════ THREE.JS WRENCH ════
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isMobile       = window.innerWidth < 768;
+
+async function initThreeWraench() {
+  const THREE = (await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js'));
+  if (!prefersReduced) {
+  const canvas    = document.getElementById('three-canvas');
+  const container = document.getElementById('hero-canvas');
+
+  const W = container.clientWidth;
+  const H = container.clientHeight;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile, alpha: true, powerPreference: 'high-performance' });
+  renderer.setSize(W, H);
+  // Lower DPR cap on mobile for better perf
+  renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile ? 1.5 : 2));
+  renderer.toneMapping    = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.15;
+
+  const scene  = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(42, W / H, 0.1, 100);
+  camera.position.set(0, 0, isMobile ? 8.4 : 7.6);
+
+  // ── Environment map — canvas gradient (no external import needed) ──
+  const envCanvas = document.createElement('canvas');
+  envCanvas.width = 256; envCanvas.height = 128;
+  const ec = envCanvas.getContext('2d');
+  // Base gradient: steel-blue top → near-black bottom
+  const grad = ec.createLinearGradient(0, 0, 0, 128);
+  grad.addColorStop(0,    '#C8D8EC');
+  grad.addColorStop(0.25, '#8AABCC');
+  grad.addColorStop(0.6,  '#2A3A50');
+  grad.addColorStop(1,    '#0B0F14');
+  ec.fillStyle = grad;
+  ec.fillRect(0, 0, 256, 128);
+  // Bright specular hotspot (top-right) for chrome highlight
+  const hot = ec.createRadialGradient(210, 25, 0, 210, 25, 70);
+  hot.addColorStop(0, 'rgba(255,255,255,0.95)');
+  hot.addColorStop(1, 'rgba(255,255,255,0)');
+  ec.fillStyle = hot;
+  ec.fillRect(0, 0, 256, 128);
+  // Ember warm glow bottom-left
+  const warm = ec.createRadialGradient(30, 110, 0, 30, 110, 80);
+  warm.addColorStop(0, 'rgba(255,106,26,0.5)');
+  warm.addColorStop(1, 'rgba(255,106,26,0)');
+  ec.fillStyle = warm;
+  ec.fillRect(0, 0, 256, 128);
+
+  const envTex = new THREE.CanvasTexture(envCanvas);
+  envTex.mapping = THREE.EquirectangularReflectionMapping;
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromEquirectangular(envTex).texture;
+  pmrem.dispose();
+  envTex.dispose();
+
+  // ── Materials ──
+  const chromeMat = new THREE.MeshStandardMaterial({
+    color:           0xD8DEE8,
+    metalness:       0.95,
+    roughness:       0.22,
+    envMapIntensity: 1.6,
+  });
+
+  const emberMat = new THREE.MeshStandardMaterial({
+    color:             0xFF6A1A,
+    metalness:         0.6,
+    roughness:         0.35,
+    emissive:          0xFF3300,
+    emissiveIntensity: 0.4,
+  });
+
+  // ── Wrench shape (combination wrench: open-end on top, box-end on bottom) ──
+  const shape = new THREE.Shape();
+  // Anchors
+  const xHandle    = 0.22;   // handle half-width (slim)
+  const xTopHead   = 0.62;   // top (open-end) head half-width
+  const xBotHead   = 0.62;   // bottom (box-end) head half-width
+  const yTopHeadT  = 2.30;   // top edge of top head
+  const yTopHeadB  = 1.20;   // where top head necks down to handle
+  const yBotHeadT  = -1.20;  // where bottom head necks down to handle
+  const yBotHeadB  = -2.30;  // bottom edge of bottom head
+  const jawW       = 0.35;   // jaw opening half-width
+  const yJawFloor  = 1.45;   // depth of the jaw floor (cut from yTopHeadT)
+  const jawCornerR = 0.12;   // corner radius inside the jaw
+
+  // Trace outline clockwise starting at bottom-right of bottom head
+  shape.moveTo( xBotHead, yBotHeadB);
+  shape.lineTo( xBotHead, yBotHeadT);
+  // taper bottom head → handle
+  shape.quadraticCurveTo( xHandle + 0.05, yBotHeadT + 0.08,  xHandle, yBotHeadT + 0.20);
+  shape.lineTo( xHandle, yTopHeadB - 0.20);
+  // taper handle → top head
+  shape.quadraticCurveTo( xHandle + 0.05, yTopHeadB - 0.08,  xTopHead, yTopHeadB);
+  shape.lineTo( xTopHead, yTopHeadT);
+  // dip into the open jaw (U-cut)
+  shape.lineTo( jawW, yTopHeadT);
+  shape.lineTo( jawW, yJawFloor + jawCornerR);
+  shape.quadraticCurveTo( jawW, yJawFloor,  jawW - jawCornerR, yJawFloor);
+  shape.lineTo(-jawW + jawCornerR, yJawFloor);
+  shape.quadraticCurveTo(-jawW, yJawFloor, -jawW, yJawFloor + jawCornerR);
+  shape.lineTo(-jawW, yTopHeadT);
+  // continue around top head outer
+  shape.lineTo(-xTopHead, yTopHeadT);
+  shape.lineTo(-xTopHead, yTopHeadB);
+  shape.quadraticCurveTo(-xHandle - 0.05, yTopHeadB - 0.08, -xHandle, yTopHeadB - 0.20);
+  shape.lineTo(-xHandle, yBotHeadT + 0.20);
+  shape.quadraticCurveTo(-xHandle - 0.05, yBotHeadT + 0.08, -xBotHead, yBotHeadT);
+  shape.lineTo(-xBotHead, yBotHeadB);
+  shape.closePath();
+
+  // Hex socket hole in bottom (box-end) head
+  const hexHole = new THREE.Path();
+  const hexR = 0.34;
+  const hexCY = (yBotHeadT + yBotHeadB) / 2;
+  for (let i = 0; i <= 6; i++) {
+    const a = (i / 6) * Math.PI * 2 + Math.PI / 6;
+    const x = Math.cos(a) * hexR;
+    const y = hexCY + Math.sin(a) * hexR;
+    if (i === 0) hexHole.moveTo(x, y);
+    else         hexHole.lineTo(x, y);
+  }
+  shape.holes.push(hexHole);
+
+  const wrenchGeo = new THREE.ExtrudeGeometry(shape, {
+    depth:         0.40,
+    bevelEnabled:  true,
+    bevelSize:     0.06,
+    bevelThickness:0.06,
+    bevelSegments: 5,
+    curveSegments: 24,
+  });
+  wrenchGeo.center();
+  wrenchGeo.computeVertexNormals();
+
+  const wrench = new THREE.Mesh(wrenchGeo, chromeMat);
+
+  const wrenchGroup = new THREE.Group();
+  wrenchGroup.add(wrench);
+
+  // Subtle ember accent — small ring on the handle (visual interest)
+  const accentRing = new THREE.Mesh(
+    new THREE.TorusGeometry(0.30, 0.045, 12, 48),
+    emberMat
+  );
+  accentRing.rotation.y = Math.PI / 2;
+  accentRing.position.set(0, 0, 0.16);
+  wrenchGroup.add(accentRing);
+
+  scene.add(wrenchGroup);
+  wrenchGroup.rotation.z = 0.18;
+
+  // ── Floating particles (bolts) ──
+  const particleGeo = new THREE.BufferGeometry();
+  const pCount      = 50;
+  const pPositions  = new Float32Array(pCount * 3);
+  const pSpeeds     = [];
+  for (let i = 0; i < pCount; i++) {
+    pPositions[i * 3]     = (Math.random() - 0.5) * 9;
+    pPositions[i * 3 + 1] = (Math.random() - 0.5) * 9;
+    pPositions[i * 3 + 2] = (Math.random() - 0.5) * 4 - 1;
+    pSpeeds.push({ x: (Math.random() - 0.5) * 0.003, y: (Math.random() - 0.5) * 0.003 });
+  }
+  particleGeo.setAttribute('position', new THREE.BufferAttribute(pPositions, 3));
+  const particleMat = new THREE.PointsMaterial({ color: 0xFF6A1A, size: 0.045, sizeAttenuation: true, transparent: true, opacity: 0.55 });
+  const particles   = new THREE.Points(particleGeo, particleMat);
+  scene.add(particles);
+
+  // ── Lights ──
+  scene.add(new THREE.AmbientLight(0xFFFFFF, 0.6));
+
+  // Ember key light — bottom left
+  const keyLight = new THREE.PointLight(0xFF6A1A, 4.5, 14);
+  keyLight.position.set(-3, -2.5, 3);
+  scene.add(keyLight);
+
+  // Cool steel rim light — top right
+  const rimLight = new THREE.PointLight(0x9FB8DC, 3.5, 12);
+  rimLight.position.set(3.5, 4, 2);
+  scene.add(rimLight);
+
+  // Soft chrome fill — top
+  const fillLight = new THREE.DirectionalLight(0xFFFFFF, 1.2);
+  fillLight.position.set(0, 6, 4);
+  scene.add(fillLight);
+
+  // ── Mouse parallax (scoped to hero container) ──
+  let mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
+  const parallaxHost = container.closest('[data-hero-canvas]') || container;
+  parallaxHost.addEventListener('pointermove', e => {
+    const r = parallaxHost.getBoundingClientRect();
+    targetX = ((e.clientX - r.left) / r.width  - 0.5) * 2;
+    targetY = ((e.clientY - r.top)  / r.height - 0.5) * 2;
+  }, { passive: true });
+  parallaxHost.addEventListener('pointerleave', () => { targetX = 0; targetY = 0; });
+
+  // ── Resize ──
+  window.addEventListener('resize', () => {
+    const w = container.clientWidth;
+    const h = container.clientHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  });
+
+  // ── Animate ──
+  let t = 0;
+  function tick() {
+    requestAnimationFrame(tick);
+    t += 0.008;
+
+    // Lerp pointer toward target for smooth parallax
+    mouseX += (targetX - mouseX) * 0.08;
+    mouseY += (targetY - mouseY) * 0.08;
+
+    // Gentle oscillation — stays mostly front-facing, never goes edge-on
+    wrenchGroup.rotation.y  = Math.sin(t * 0.6) * 0.55 + mouseX * 0.3;
+    wrenchGroup.rotation.x  = Math.sin(t * 0.35) * 0.18 - mouseY * 0.22;
+    wrenchGroup.rotation.z  = 0.18 + Math.sin(t * 0.4) * 0.08;
+    wrenchGroup.position.y  = Math.sin(t * 0.5) * 0.15;
+
+    // Animate particles
+    const pos = particles.geometry.attributes.position;
+    for (let i = 0; i < pCount; i++) {
+      pos.array[i * 3]     += pSpeeds[i].x;
+      pos.array[i * 3 + 1] += pSpeeds[i].y;
+      // Wrap
+      if (pos.array[i * 3]     >  5) pos.array[i * 3]     = -5;
+      if (pos.array[i * 3]     < -5) pos.array[i * 3]     =  5;
+      if (pos.array[i * 3 + 1] >  5) pos.array[i * 3 + 1] = -5;
+      if (pos.array[i * 3 + 1] < -5) pos.array[i * 3 + 1] =  5;
+    }
+    pos.needsUpdate = true;
+
+    // Ember light pulse
+    keyLight.intensity = 5 + Math.sin(t * 1.2) * 1.5;
+
+    renderer.render(scene, camera);
+  }
+  tick();
+  } // end if (!prefersReduced)
+} // end initThreeWraench
+
+// Defer Three.js until browser is idle (after first paint)
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(initThreeWraench, { timeout: 3000 });
+} else {
+  setTimeout(initThreeWraench, 200);
+}
+
+// ════════════════════════════════════════ HERO ANIMATE-IN ════
+// Trigger reveals in viewport immediately on load
+function triggerVisibleReveals() {
+  document.querySelectorAll('.reveal').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 100) el.classList.add('visible');
+  });
+}
+triggerVisibleReveals();
+setTimeout(triggerVisibleReveals, 100);
+
+// Hard fallback — if inView never fires (e.g. headless), reveal everything after 1.5s
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    el.classList.add('visible');
+  });
+  // Custom-animated elements: any element with inline opacity:0 left over from
+  // our entrance setup that never had its IntersectionObserver fire.
+  document.querySelectorAll('.word-anim, .char-anim').forEach(el => {
+    if (getComputedStyle(el).opacity === '0') {
+      el.style.transition = 'transform 0.6s cubic-bezier(0.16,1,0.3,1), opacity 0.6s';
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }
+  });
+  document.querySelectorAll('#services .bento-grid > .card, #services .bento-grid > .bento-wide, #work .grid .job-card, #pricing .grid > .card, #pricing .grid > .card-float, #about .grid > div, .timeline-step, #contact-form > div, #contact-form > button, .magnetic, [data-hero-canvas], [data-hero-trust] > div, [data-hero-cta] a').forEach(el => {
+    if (getComputedStyle(el).opacity === '0') {
+      el.style.transition = 'transform 0.6s cubic-bezier(0.16,1,0.3,1), opacity 0.6s';
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    }
+  });
+}, 1800);
+</script>
+
+<!-- ═══════════════════════════════════════ PORTFOLIO UPGRADES SCRIPTS ═══ -->
+<script type="module">
+const PR = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const HOVER = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+// ── Preloader ──
+(() => {
+  const pl  = document.getElementById('preloader');
+  const bar = document.getElementById('pl-bar');
+  const pct = document.getElementById('pl-pct');
+  if (!pl) return;
+  if (PR) { pl.classList.add('done'); return; }
+  let p = 0;
+  const messages = ['Initializing dispatch', 'Warming engine', 'Loading toolkit', 'Calibrating wrench', 'Ready'];
+  const labelEl = pl.querySelector('.pl-text');
+  const tick = () => {
+    p += Math.random() * 14 + 6;
+    if (p > 100) p = 100;
+    bar.style.width = p + '%';
+    pct.textContent = Math.round(p) + '%';
+    const idx = Math.min(messages.length - 1, Math.floor(p / 22));
+    labelEl.firstChild.nodeValue = messages[idx] + ' ';
+    if (p < 100) setTimeout(tick, 130 + Math.random() * 90);
+    else setTimeout(() => pl.classList.add('done'), 350);
+  };
+  // Wait for first paint
+  requestAnimationFrame(() => setTimeout(tick, 80));
+  // Hard fallback
+  setTimeout(() => pl.classList.add('done'), 4000);
+})();
+
+// ── Custom cursor (DISABLED — using native cursor) ──
+(() => {
+  return;
+  if (!HOVER || PR) return;
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
+  let mx = -100, my = -100, rx = -100, ry = -100;
+  window.addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; });
+  const tick = () => {
+    rx += (mx - rx) * 0.18;
+    ry += (my - ry) * 0.18;
+    dot.style.transform  = `translate3d(${mx - 3}px, ${my - 3}px, 0)`;
+    ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
+    requestAnimationFrame(tick);
+  };
+  tick();
+
+  const isHoverable = el => el && (
+    el.matches('a, button, [data-cursor="hover"], .lift, .job-card, .tilt-card, .btn-ember, .btn-ghost, .flow-btn, .magnetic, .nav-link, .social-link, .faq-trigger, .timeline-step, label, .stack-badge, .price-toggle button')
+  );
+  const isText = el => el && el.matches('input:not([type="submit"]), textarea, [contenteditable="true"]');
+  document.addEventListener('pointerover', e => {
+    const t = e.target;
+    if (isText(t))           { ring.classList.add('text');  ring.classList.remove('hover'); }
+    else if (isHoverable(t)) { ring.classList.add('hover'); ring.classList.remove('text'); }
+    else                     { ring.classList.remove('hover', 'text'); }
+  });
+  document.addEventListener('pointerleave', () => { mx = -100; my = -100; });
+})();
+
+
+// ── Tachometer scroll indicator ──
+(() => {
+  const needle = document.getElementById('tach-needle');
+  const rpm = document.getElementById('tach-rpm');
+  const fill = document.querySelector('#hero-tach .tach-fill');
+  if (!needle || !rpm || !fill) return;
+  const heroSection = document.querySelector('.hero-bg');
+  if (!heroSection) return;
+  const onScroll = () => {
+    const r = heroSection.getBoundingClientRect();
+    const total = r.height;
+    const passed = Math.max(0, Math.min(total, -r.top + window.innerHeight * 0.35));
+    const p = Math.max(0, Math.min(1, passed / total));
+    const angle = -135 + p * 270; // 0 → 270° sweep
+    needle.style.transform = `rotate(${angle}deg)`;
+    fill.style.strokeDashoffset = String(113 - 113 * p);
+    rpm.textContent = String(Math.round(p * 7800)).padStart(4, '0');
+    rpm.style.color = p > 0.85 ? '#FF3300' : 'var(--ember)';
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+// ── Steps connecting line — scroll draw ──
+(() => {
+  const path = document.querySelector('.steps-line svg path');
+  const grid = document.getElementById('steps-grid');
+  if (!path || !grid || PR) return;
+  const len = path.getTotalLength();
+  path.style.strokeDasharray = len;
+  path.style.strokeDashoffset = len;
+  const onScroll = () => {
+    const r = grid.getBoundingClientRect();
+    const start = window.innerHeight;
+    const end = -r.height * 0.4;
+    const p = Math.max(0, Math.min(1, (start - r.top) / (start - end)));
+    path.style.strokeDashoffset = String(len * (1 - p));
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+// ── Brutalist type divider — horizontal scroll-driven slide ──
+(() => {
+  const word = document.querySelector('[data-td-word]');
+  if (!word || PR) return;
+  const host = word.closest('.type-divider');
+  const onScroll = () => {
+    const r = host.getBoundingClientRect();
+    const start = window.innerHeight;
+    const total = r.height + window.innerHeight;
+    const p = Math.max(0, Math.min(1, (start - r.top) / total));
+    const x = (p - 0.5) * 18; // -9% .. +9%
+    word.style.transform = `translateX(${x}%)`;
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+// ── Pricing toggle ──
+(() => {
+  const tg = document.getElementById('price-toggle');
+  if (!tg) return;
+  const pill    = tg.querySelector('.toggle-pill');
+  const buttons = tg.querySelectorAll('button[data-period]');
+
+  const positionPill = (btn) => {
+    if (!pill) return;
+    pill.style.width = btn.offsetWidth + 'px';
+    pill.style.left  = btn.offsetLeft + 'px';
+  };
+
+  const apply = (period) => {
+    tg.classList.toggle('annual', period === 'annual');
+    buttons.forEach(b => {
+      const active = b.dataset.period === period;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-selected', String(active));
+      if (active) positionPill(b);
+    });
+    document.querySelectorAll('.price-amount, .price-period').forEach(el => {
+      const v = el.dataset[period];
+      if (!v) return;
+      el.classList.add('flip');
+      setTimeout(() => {
+        el.textContent = v;
+        el.classList.remove('flip');
+      }, 200);
+    });
+  };
+
+  buttons.forEach(b => b.addEventListener('click', () => apply(b.dataset.period)));
+  // Set initial pill position after layout
+  requestAnimationFrame(() => positionPill(tg.querySelector('button.active')));
+})();
+
+// ── Image shimmer skeletons ──
+(() => {
+  document.querySelectorAll('.job-card, #about img').forEach(el => {
+    const img = el.tagName === 'IMG' ? el : el.querySelector('img');
+    if (!img) return;
+    const wrap = el.tagName === 'IMG' ? el.parentElement : el;
+    if (wrap) wrap.classList.add('img-skel');
+    const done = () => { if (wrap) wrap.classList.add('loaded'); };
+    if (img.complete && img.naturalWidth > 0) done();
+    else { img.addEventListener('load', done); img.addEventListener('error', done); }
+  });
+})();
+
+
+// ── Copyright year ──
+(() => {
+  const y = document.getElementById('copyright-year');
+  if (y) y.textContent = String(new Date().getFullYear());
+})();
+
+// ── Nav active section indicator ──
+(() => {
+  const links = document.querySelectorAll('nav .nav-link[href^="#"]');
+  const map = new Map();
+  links.forEach(l => {
+    const id = l.getAttribute('href').slice(1);
+    const sec = document.getElementById(id);
+    if (sec) map.set(sec, l);
+  });
+  if (!map.size) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        links.forEach(l => l.style.color = '');
+        const link = map.get(en.target);
+        if (link) link.style.color = 'var(--chrome)';
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  map.forEach((_, sec) => io.observe(sec));
+})();
+</script>
+
+</body>
+</html>
